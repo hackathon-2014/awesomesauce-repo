@@ -1,7 +1,7 @@
 'use strict';
 angular.module('Frontend.controllers', [])
 
-.controller('DashCtrl', function($scope, Spells, $ionicModal, $timeout, $cordovaDialogs) {
+.controller('DashCtrl', function($scope, $location, Spells, $ionicModal, $timeout, $cordovaDialogs) {
   console.log("DashCtrl called")
   //Form data for the login modal
   // console.log("dialogs", $cordovaDialogs)
@@ -19,7 +19,11 @@ angular.module('Frontend.controllers', [])
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
-  },
+  };
+
+  $scope.challengeWizard = function() {
+    $location.url("/tab/challenge")
+  }
 
   // Open the login modal
   $scope.login = function() {
@@ -39,23 +43,23 @@ angular.module('Frontend.controllers', [])
 
 })
 
-.controller('SpellsCtrl', function($scope, Spells) {
+.controller('SpellsCtrl', function($scope, $location, Spells) {
   console.log("SpellsCtrl called")
   $scope.spells = Spells.data;
   Spells.initSpells();
 })
 
-.controller('SpellsDetailCtrl', function($scope, $stateParams, Spells) {
+.controller('SpellsDetailCtrl', function($scope, $location, $stateParams, Spells) {
   console.log("SpellDetailCtrl called")
   $scope.spell = Spells.get($stateParams.spellId);
 })
 
-.controller('StatsCtrl', function($scope, Stats) {
+.controller('StatsCtrl', function($scope, $location, Stats) {
   $scope.stats = Stats.all()
   console.log("StatsCtrl called")
 })
 
-.controller('ChallengeCtrl', function($scope, Challengers, Spells, $http) {
+.controller('ChallengeCtrl', function($scope, $location,Challengers, Spells, $http, Battle) {
   console.log("ChallengersCtrl called")
   $scope.spells = Spells.data;
   $scope.challengers = Challengers.data;
@@ -69,12 +73,17 @@ angular.module('Frontend.controllers', [])
       challenger_id: 1,
       challengee_id: 2
     }
-    
+  }
 
+  $scope.wizardSelected = function(challengerId) {
+    console.log("hi")
+    Battle.data.challenger.id = 1
+    Battle.data.challengee.id = challengerId
+    $location.url("/tab/challenge/" + challengerId + "/choose-spells")
   }
 })
 
-.controller('ChooseSpellsCtrl', function($http, $scope, $stateParams, Challengers, Spells, Battle) {
+.controller('ChooseSpellsCtrl', function($http, $location, $scope, $stateParams, Challengers, Spells, Battle) {
   console.log("ChooseSpellsCtrl called")
   Spells.initSpells()
 
@@ -93,7 +102,7 @@ angular.module('Frontend.controllers', [])
       Battle.data = data;
       Battle.data.challengee.spellsChosen = []
       Battle.data.challenger.spellsChosen = []
-      window.location = "#/tab/challenge/" + challengerId + "/battle"
+      $location.url("/tab/challenge/" + challengerId + "/battle")
     })
   }
 })
