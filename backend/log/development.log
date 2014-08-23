@@ -2199,3 +2199,92 @@ Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.haml within layouts/application (0.1ms)
   Rendered layouts/_navbar.html.haml (0.6ms)
 Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 12:07:28 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  Rendered layouts/_navbar.html.haml (0.4ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-08-23 12:07:32 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (2.7ms)
+  Rendered layouts/_navbar.html.haml (0.8ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2014-08-23 12:07:33 -0400
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2014-08-23 12:07:34 -0400
+
+
+Started GET "/users/auth/twitter/callback?oauth_token=f9QRmbr8OKYCKPHY10PeEw70bI8WqHsYyVLBpGeaiQE&oauth_verifier=PjBslxZNe4wlzxWvDXDFKN2ilSi0koNKQ5GGzqtfg" for 127.0.0.1 at 2014-08-23 12:07:36 -0400
+Processing by OmniauthCallbacksController#twitter as HTML
+  Parameters: {"oauth_token"=>"f9QRmbr8OKYCKPHY10PeEw70bI8WqHsYyVLBpGeaiQE", "oauth_verifier"=>"PjBslxZNe4wlzxWvDXDFKN2ilSi0koNKQ5GGzqtfg"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`provider` = 'twitter' AND `users`.`uid` = '40869925' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `current_sign_in_at` = '2014-08-23 16:07:37', `last_sign_in_at` = '2014-08-23 15:58:19', `sign_in_count` = 3, `updated_at` = '2014-08-23 16:07:37' WHERE `users`.`id` = 3
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 12:07:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (1.6ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`provider` = 'twitter' AND `users`.`uid` = '40869925' LIMIT 1[0m
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-08-23 12:08:57 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fWeyLxanx0RPNq1T6sDi//rbxFuGNbFtKM5C9N5dnsw="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 12:08:58 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  Rendered layouts/_navbar.html.haml (0.4ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-08-23 12:09:00 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (1.8ms)
+  Rendered layouts/_navbar.html.haml (0.4ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2014-08-23 12:09:02 -0400
+
+
+Started GET "/users/auth/twitter" for 127.0.0.1 at 2014-08-23 12:09:03 -0400
+
+
+Started GET "/users/auth/twitter/callback?oauth_token=NPkJVlD8aXBSTgl1TAMttwxFrGFU0WV44UqjthL4s&oauth_verifier=O8CdWczF75gR3mMwLm3bf8NR8hUNIET2BSuZ3L0Ufk" for 127.0.0.1 at 2014-08-23 12:09:07 -0400
+Processing by OmniauthCallbacksController#twitter as HTML
+  Parameters: {"oauth_token"=>"NPkJVlD8aXBSTgl1TAMttwxFrGFU0WV44UqjthL4s", "oauth_verifier"=>"O8CdWczF75gR3mMwLm3bf8NR8hUNIET2BSuZ3L0Ufk"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`provider` = 'twitter' AND `users`.`uid` = '40869925' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `current_sign_in_at` = '2014-08-23 16:09:08', `last_sign_in_at` = '2014-08-23 16:07:37', `sign_in_count` = 4, `updated_at` = '2014-08-23 16:09:08' WHERE `users`.`id` = 3
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 12:09:08 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (1.4ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.3ms)
