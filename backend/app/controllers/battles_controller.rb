@@ -37,7 +37,8 @@ class BattlesController < ApplicationController
 
   def detect_challenge
     @user = User.find(params[:user_id])
-    @battle = @user.battles.where(workflow_state: 'challenged').first
+    @battle = Battle.where(workflow_state: 'challenged', challengee_id: @user.id).first
+    p @battle
 
   end
 
