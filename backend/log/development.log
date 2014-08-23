@@ -31451,3 +31451,631 @@ Processing by BattlesController#get_challenge_data as JSON
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
   Rendered battles/get_challenge_data.json.rabl (2.7ms)
 Completed 200 OK in 22ms (Views: 5.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:22 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.4ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.1ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:23 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.4ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.4ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.2ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.9ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.9ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.8ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (5.7ms)
+Completed 200 OK in 27ms (Views: 8.3ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:23 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.3ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.6ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:24 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.5ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.7ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.5ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.5ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.5ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (5.0ms)
+Completed 200 OK in 23ms (Views: 8.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:24 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.3ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.3ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:25 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.8ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.7ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.5ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.8ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.8ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.9ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.6ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (4.1ms)
+Completed 200 OK in 27ms (Views: 6.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:25 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.3ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.3ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:26 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.4ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.3ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.5ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.6ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.4ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.5ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (4.5ms)
+Completed 200 OK in 20ms (Views: 7.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:26 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.3ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.2ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:27 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.3ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (1.6ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.6ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.6ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.7ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.3ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.7ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (5.0ms)
+Completed 200 OK in 27ms (Views: 8.3ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:27 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.3ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.3ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:28 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (1.8ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.6ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.7ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (2.5ms)
+Completed 200 OK in 22ms (Views: 5.7ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:28 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.4ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.0ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:29 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.3ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.6ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.6ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.8ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.7ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (6.2ms)
+Completed 200 OK in 28ms (Views: 9.2ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:29 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.3ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.0ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:30 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.7ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.4ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.6ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.5ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (2.9ms)
+Completed 200 OK in 19ms (Views: 5.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:30 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.3ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.8ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:31 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.4ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.3ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.5ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (3.5ms)
+Completed 200 OK in 22ms (Views: 6.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:31 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.5ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.4ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:32 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.6ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.6ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.6ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.3ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.3ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.2ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (4.4ms)
+Completed 200 OK in 21ms (Views: 7.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:32 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.3ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.2ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:33 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.3ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.7ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.6ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.4ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.3ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.2ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (4.9ms)
+Completed 200 OK in 21ms (Views: 7.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:33 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (1.4ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.7ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:34 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.4ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.6ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.5ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.3ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (2.7ms)
+Completed 200 OK in 18ms (Views: 5.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:34 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.3ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.0ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:35 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.4ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.5ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.3ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.4ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.2ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (3.6ms)
+Completed 200 OK in 18ms (Views: 5.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:35 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.4ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.3ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:36 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.5ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.5ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.2ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.2ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.3ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (3.7ms)
+Completed 200 OK in 19ms (Views: 6.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:36 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.3ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (23.5ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:37 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.6ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.7ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.5ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.2ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.2ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (6.3ms)
+Completed 200 OK in 23ms (Views: 8.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:37 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.5ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.3ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:38 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.3ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.6ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.7ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.3ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.6ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.6ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (2.4ms)
+Completed 200 OK in 19ms (Views: 4.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:38 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.4ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.8ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:39 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.4ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.2ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.6ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.5ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.6ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (5.7ms)
+Completed 200 OK in 25ms (Views: 9.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:39 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.4ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.0ms)
+
+
+Started GET "/battles/4/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:40 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mBattle Load (0.5ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 4 LIMIT 1[0m
+  [1m[35mWeapon Load (0.4ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35mSpell Load (0.2ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.2ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 4 AND `weapons`.`user_id` = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mSpell Load (0.2ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (4.4ms)
+Completed 200 OK in 17ms (Views: 6.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/battles/undefined/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:52:40 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[35mBattle Load (0.4ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
+  app/controllers/battles_controller.rb:74:in `find_battle'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.9ms)
