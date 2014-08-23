@@ -4,23 +4,28 @@ class FavoriteListsController < ApplicationController
     :update,
     :destroy]
 
+  def index
+    @list = FavoriteList.all
+  end
+
   def new
-    @list = Favorite_list.new
+    @list = FavoriteList.new
   end
 
   def create
-    @list = Favorite_list.create list_params
+    @list = FavoriteList.create list_params
+    redirect_to favorite_lists_path
   end
 
   def edit
   end
 
   def update
-    @list = Favorite_list.update_attributes list_params
+    @list = FavoriteList.update_attributes list_params
   end
 
   def show
-    @list = Favorite_list.all
+    @list = FavoriteList.all
   end
 
   def destroy
@@ -29,7 +34,7 @@ class FavoriteListsController < ApplicationController
 
   private
   def find_list
-    @list = Favorite_list.find params[:id]
+    @list = FavoriteList.find params[:id]
   end
 
   def list_params

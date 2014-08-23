@@ -2,9 +2,9 @@
   %li.active
     = link_to "Home", root_path
   %li
-    %a{:href => "#about"} About
+    %a{:href => "spells_path"} Spells
   %li
-    %a{:href => "#contact"} Contact
+    =link_to "Favorite Lists", favorite_lists_path
   %li.dropdown
     %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
       Dropdown

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823143008) do
+ActiveRecord::Schema.define(version: 20140823162009) do
 
   create_table "favorite_lists", force: true do |t|
     t.string   "name"
@@ -26,9 +26,19 @@ ActiveRecord::Schema.define(version: 20140823143008) do
     t.datetime "updated_at"
   end
 
+  create_table "identities", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
+
   create_table "spells", force: true do |t|
     t.string   "name"
-    t.string   "desrciption"
+    t.string   "description"
     t.integer  "damage_count"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -51,6 +61,9 @@ ActiveRecord::Schema.define(version: 20140823143008) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -14,9 +14,11 @@ gem 'letter_opener', group: :development
 gem 'quiet_assets', group: :development
 gem 'haml-rails'
 gem 'devise'
-gem 'omniauth'
+# gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'simple_form'
+gem 'rabl'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

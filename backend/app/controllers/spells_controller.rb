@@ -1,8 +1,14 @@
 class SpellsController < ApplicationController
+  respond_to :html, :json
+
   before_filter :find_spell, only:[:show,
     :edit,
     :update,
     :destroy]
+
+  def index
+    @spells = Spell.all
+  end
 
   def new
     @spell = Spell.new
