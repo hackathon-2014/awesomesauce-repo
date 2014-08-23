@@ -1,0 +1,2 @@
+object @list
+attributes :name
