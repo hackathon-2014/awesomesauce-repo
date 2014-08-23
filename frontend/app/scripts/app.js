@@ -68,12 +68,12 @@ angular.module('Frontend', ['ionic', 'config', 'Frontend.controllers', 'Frontend
       }
     })
 
-    .state('tab.account', {
-      url: '/account',
+    .state('tab.stats', {
+      url: '/stats',
       views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+        'tab-stats': {
+          templateUrl: 'templates/tab-stats.html',
+          controller: 'StatsCtrl'
         }
       }
     });

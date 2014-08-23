@@ -15,6 +15,7 @@ angular.module('Frontend.controllers', [])
   $scope.spell = Spells.get($stateParams.spellId);
 })
 
-.controller('AccountCtrl', function($scope) {
-  console.log("AccountCtrl called")
+.controller('StatsCtrl', function($scope, Stats) {
+  $scope.stats = Stats.all()
+  console.log("StatsCtrl called")
 });
