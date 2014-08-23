@@ -24,8 +24,9 @@ angular.module('Frontend.controllers', [])
 
 .controller('ChallengeCtrl', function($scope, Challengers, Spells) {
   console.log("ChallengersCtrl called")
-  $scope.spells = Spells.data.spells;
-  $scope.challengers = Challengers.data.challengers;
+  $scope.spells = Spells.data;
+  console.log($scope.challengers)
+  $scope.challengers = Challengers.data;
   Spells.initSpells()
   Challengers.initChallengers()
   // Challengers.initChallengers()
