@@ -6,8 +6,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new user_params
-    @user.save!(validate: false)
+    @user = User.find_by_email(params[:login_info][:email])
+    unless @user
+      @user = User.new user_params
+      @user.save!(validate: false)
+    end
     # respond_to do |format|
     #   format.json { render json: @user }
     # end

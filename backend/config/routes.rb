@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
 
     collection do
-      get :detect_challenge
+      post :detect_challenge
     end
   end
 

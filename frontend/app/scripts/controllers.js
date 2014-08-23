@@ -1,37 +1,47 @@
 'use strict';
 angular.module('Frontend.controllers', [])
 
-.controller('DashCtrl', function($http, $scope, $location, Spells, $ionicModal, $timeout) {
-  console.log("DashCtrl called")
+.controller('DashCtrl', function($rootScope, $http, $scope, $location, Spells, $ionicModal, $timeout) {
+  console.log("DashCtrl called, rootScope is", $rootScope)
   //Form data for the login modal
   // console.log("dialogs", $cordovaDialogs)
   // $cordovaDialogs.beep(2)
   $scope.loginData = {};
+  $scope.challenged = false;
 
+  
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
     // $scope.modal.show();
-    if(!($scope.isLoggedIn())){
+    if($rootScope.loginInfo){
+      console.log('logged in')
+    } else {
       console.log('logged in is false')
       $scope.login()
+
     }
   });
 
-  var challengeInt = setInterval(function(){
-    console.log("timeout fired")
-    // $http.get('http://localhost:3000/detect_challenge').success(function(resp){
-    //   if(resp.challenge){
-    //     // need challenger.id
-    //     console.log('challenge detected')
-    //     // $location.path('/tab/challenge/id/choose-spells')
-    //     clearInterval(challengeInt)
+  $scope.challengePing = function() {
+    var challengeInt = setInterval(function(){
+      console.log("timeout fired")
+      $http.post('http://localhost:3000/battles/detect_challenge.json', {user_id: $rootScope.loginInfo.id}).success(function(resp){
+        console.log(resp)
+        if(resp){
+          // need challenger.id
+          console.log('challenge detected')
+          $scope.challenged = true; 
+          // $location.path('/tab/challenge/id/choose-spells')
+          clearInterval(challengeInt)
 
-    //   }
-    // })
-  }, 1000)
+        }
+      })
+    }, 1000)
+    
+  }
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
@@ -47,17 +57,17 @@ angular.module('Frontend.controllers', [])
   };
 
 
-  $scope.isLoggedIn = function(){
-    return false;
-  }
-
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
     $http.post('http://localhost:3000/create_user.json', {login_info: $scope.loginData}).success(function(resp){
       console.log("user logged in, resp:", resp)
+      // $rootScope.currentUser = resp
       $scope.closeLogin();
+      $scope.isLoggedIn = true
+      $rootScope.loginInfo = resp
+      $scope.challengePing()
       
     })
     
@@ -81,7 +91,7 @@ angular.module('Frontend.controllers', [])
   console.log("StatsCtrl called")
 })
 
-.controller('ChallengeCtrl', function($scope, $location,Challengers, Spells, $http, Battle) {
+.controller('ChallengeCtrl', function($scope, $rootScope, $location,Challengers, Spells, $http, Battle) {
   console.log("ChallengersCtrl called")
   $scope.spells = Spells.data;
   $scope.challengers = Challengers.data;
@@ -99,16 +109,59 @@ angular.module('Frontend.controllers', [])
 
   $scope.wizardSelected = function(challengerId) {
     console.log("hi")
-    Battle.data.challenger.id = 1
+    console.log($rootScope.loginInfo)
+    Battle.data.challenger.id = $rootScope.loginInfo.id
     Battle.data.challengee.id = challengerId
     $location.url("/tab/challenge/" + challengerId + "/choose-spells")
   }
 })
 
-.controller('ChooseSpellsCtrl', function($http, $location, $scope, $stateParams, Challengers, Spells, Battle) {
+.controller('ChooseSpellsCtrl', function($rootScope, $http, $location, $scope, $stateParams, Challengers, Spells, Battle) {
   console.log("ChooseSpellsCtrl called")
   Spells.initSpells()
+  console.log('coool:', $rootScope.idstuff)
+  $scope.challenger = Challengers.getChallenger($stateParams.challengerId)
+  $scope.spells = Spells.data;
+  $scope.limit = 4;
+  $scope.checked = 0;
+  $scope.spellsChosen = []
+  $scope.toggleSelection = function(spell){
+    var idx = $scope.spellsChosen.indexOf(spell);
+    if(idx > -1) {
+      $scope.spellsChosen.splice(idx, 1);
+      console.log($scope.spellsChosen)
+    }
+    else {
+      $scope.spellsChosen.push(spell)
+      console.log($scope.spellsChosen)
+    }
+  }
 
+  $scope.maxSelected = function() {
+    return $scope.spellsChosen.length > 3;
+  }
+
+  $scope.sendChallenge = function(challengerId){
+    console.log("challenge data sent")
+    var newBattle = {battle:{
+      challenger_id: Battle.data.challenger.id,
+      challenger_spells: $scope.spellsChosen,
+      challengee_id: Battle.data.challengee.id,
+      challengee_spells: []
+    }}
+    $http.post('http://localhost:3000/battles.json',newBattle).success(function(data, status, headers, config){
+      Battle.data = data;
+      Battle.data.challengee.spellsChosen = []
+      Battle.data.challenger.spellsChosen = []
+      $location.url("/tab/challenge/" + challengerId + "/battle")
+    })
+  }
+})
+
+.controller('ChooseChallengeeSpellsCtrl', function($rootScope, $http, $location, $scope, $stateParams, Challengers, Spells, Battle) {
+  console.log("ChooseChallengeeSpellsCtrl called")
+  Spells.initSpells()
+  console.log('coool:', $rootScope.idstuff)
   $scope.challenger = Challengers.getChallenger($stateParams.challengerId)
   $scope.spells = Spells.data;
   $scope.limit = 4;

@@ -5,7 +5,6 @@ node(:challenger) do |battle|
     id: battle.challenger.id,
     name: battle.challenger.name,
     email: battle.challenger.email
-    
   }
 end
 node(:challengee) do |battle| 
