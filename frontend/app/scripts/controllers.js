@@ -55,7 +55,7 @@ angular.module('Frontend.controllers', [])
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
-    $http.post('http://localhost:3000/users.json', {login_info: $scope.loginData}).success(function(resp){
+    $http.post('http://localhost:3000/create_user.json', {login_info: $scope.loginData}).success(function(resp){
       console.log("user logged in, resp:", resp)
       $scope.closeLogin();
       
@@ -134,7 +134,9 @@ angular.module('Frontend.controllers', [])
     console.log("challenge data sent")
     var newBattle = {battle:{
       challenger_id: Battle.data.challenger.id,
-      challengee_id: Battle.data.challengee.id
+      challenger_spells: $scope.spellsChosen,
+      challengee_id: Battle.data.challengee.id,
+      challengee_spells: []
     }}
     $http.post('http://localhost:3000/battles.json',newBattle).success(function(data, status, headers, config){
       Battle.data = data;
