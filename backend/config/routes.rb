@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   resources :spells do
   end
   
-  # resources :users do
-  # end
+  resources :users do
+  end
 
   resources :battles do
     member do
