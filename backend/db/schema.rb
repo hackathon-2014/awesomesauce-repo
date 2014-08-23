@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823204400) do
+ActiveRecord::Schema.define(version: 20140823210527) do
 
   create_table "battles", force: true do |t|
     t.string   "workflow_state"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20140823204400) do
     t.integer  "battle_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
 end

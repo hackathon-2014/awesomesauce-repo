@@ -1,16 +1,25 @@
 <div class="modal">
   <ion-header-bar>
-    <h1 class="title">Login Via Twitter</h1>
+    <h1 class="title">Login</h1>
       
+      <button class="button button-positive button-clear no-animation" ng-click="closeLogin()">Close</button>
+
   </ion-header-bar>
   <ion-content>
-  
+    <form ng-submit="doLogin()">
       <div class="list">
-        
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="loginData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
         <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
+          <button class="button button-block button-positive" type="submit">Log in / Sign Up</button>
         </label>
       </div>
-
+    </form>
   </ion-content>
 </div>
