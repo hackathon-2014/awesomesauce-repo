@@ -1,9 +1,11 @@
 <ion-view title="Stats">
-  <ion-content class="has-header padding">
+  <ion-content class="has-header">
     <ion-list>
-      <ion-item class="item-icon-right" ng-repeat="stat in stats" type="item-text-wrap">
-      {{stat.name}} 
-      {{stat.value}}
+      <ion-item class="item-icon-left" ng-repeat="stat in stats" type="item-text-wrap">
+        <i class="ion-stats-bars"></i>
+        {{stat.name}} 
+        {{stat.value}}
+      </ion-item>
     </ion-list> 
   </ion-content>
 </ion-view>
