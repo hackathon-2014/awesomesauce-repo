@@ -1,0 +1,11 @@
+<ion-view title="Challengers">
+  <ion-content class="has-header padding">
+    <h1>Challenge screen</h1>
+    <ion-list>
+      <ion-item class="item-icon-right" ng-repeat="challenger in challengers" type="item-text-wrap" href="#/tab/challengers/{{challenger.id}}">
+        {{challenger.name}}
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

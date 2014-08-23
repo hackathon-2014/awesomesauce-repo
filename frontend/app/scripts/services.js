@@ -42,4 +42,22 @@ angular.module('Frontend.services', [])
       return stats;
     }
   };
+})
+
+.factory('Challengers', function() {
+  // Might use a resource here that returns a JSON array
+  console.log("Challengers service hit")
+  // Some fake testing data
+  var challengers = [
+    { id: 0, name: 'bobcat'},
+    { id: 1, name: 'nick'},
+    { id: 2, name: 'kevin'},
+
+  ];
+
+  return {
+    all: function() {
+      return challengers;
+    }
+  };
 });

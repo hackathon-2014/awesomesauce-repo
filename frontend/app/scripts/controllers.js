@@ -18,4 +18,9 @@ angular.module('Frontend.controllers', [])
 .controller('StatsCtrl', function($scope, Stats) {
   $scope.stats = Stats.all()
   console.log("StatsCtrl called")
+})
+
+.controller('ChallengersCtrl', function($scope, Challengers) {
+  console.log("ChallengersCtrl called")
+  $scope.challengers = Challengers.all()
 });
