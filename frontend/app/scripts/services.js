@@ -46,38 +46,46 @@ angular.module('Frontend.services', [])
   };
 })
 
-.factory('Challenge', function() {
+.factory('Challengers', function($http) {
   // Might use a resource here that returns a JSON array
   console.log("Challenge service hit")
-  // Some fake testing data
-  var challengers = [
-    { id: 0, name: 'bobcat'},
-    { id: 1, name: 'nick'},
-    { id: 2, name: 'kevin'},
 
-  ];
+  var Challengers = {
+    data: {
+      challengers: [
+        { id: 0, name: 'bobcat'}
+      ]
+    }
+  }
 
-  var spells = [
-    { id: 0, name: 'expelliarmus' },
-    { id: 1, name: 'leviticus' },
-    { id: 2, name: 'america' },
-    { id: 3, name: 'rock climbing' }
-  ];
 
-  var spellsChosen = []
 
-  return {
-    allChallengers: function() {
-      return challengers;
-    },
-    getChallenger: function(challengerId){
-      return challengers[challengerId];
-    },
-    allSpells: function(){
-      return spells;
-    },
-    
-  };
+  Challengers.allChallengers = function() {
+    return challengers;
+  },
+  Challengers.getChallenger = function(challengerId){
+    return challengers[challengerId];
+  },
+  Challengers.allSpells = function(){
+    return Challengers.data.spells;
+  },
+  Challengers.getSpell = function(){
+    return Challengers.data.spells[spellId]
+  },
+  Challengers.initChallengers = function(){
+    $http.get('http://localhost:3000/challengers.json').success( function(data){
+      Challengers.data.challengers = data
+    });
+    return true;
+  },
+  Challengers.initSpells = function(){
+    $http.get('http://localhost:3000/spells.json').success( function(data){
+      Challengers.data.challengers = data
+    });
+    return true;
+  }
+
+  return Challengers
 })
 
 .factory('Battle', function() {
