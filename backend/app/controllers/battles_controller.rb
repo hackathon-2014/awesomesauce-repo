@@ -36,7 +36,9 @@ class BattlesController < ApplicationController
   end
 
   def detect_challenge
-    # params[:user]
+    @user = User.find(params[:user_id])
+    @battle = @user.battles.where(workflow_state: 'challenged').first
+
   end
 
   private
