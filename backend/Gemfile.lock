@@ -176,7 +176,6 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   mysql2
-  omniauth
   omniauth-twitter
   quiet_assets
   rack-cors
