@@ -35,6 +35,10 @@ class BattlesController < ApplicationController
   def destroy
   end
 
+  def detect_challenge
+    # params[:user]
+  end
+
   private
 
   def battle_params
