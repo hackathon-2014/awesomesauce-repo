@@ -72,7 +72,7 @@ angular.module('Frontend.controllers', [])
   }
 })
 
-.controller('ChooseSpellsCtrl', function($scope, $stateParams, Challengers, Spells) {
+.controller('ChooseSpellsCtrl', function($http, $scope, $stateParams, Challengers, Spells) {
   console.log("ChooseSpellsCtrl called")
   Spells.initSpells()
 
@@ -87,7 +87,7 @@ angular.module('Frontend.controllers', [])
 
   $scope.sendChallenge = function(){
     console.log("challenge data sent")
-    $http.post('http://localhost:3000/challenge.json', {challenge: window.challenge}).success(function(data, status, headers, config){
+    $http.post('http://localhost:3000/battle.json', {battle: window.challenge}).success(function(data, status, headers, config){
       console.log("successfully sent user data")
     })
   }
