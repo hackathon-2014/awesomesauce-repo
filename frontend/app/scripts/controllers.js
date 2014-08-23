@@ -7,6 +7,7 @@ angular.module('Frontend.controllers', [])
   // console.log("dialogs", $cordovaDialogs)
   // $cordovaDialogs.beep(2)
   $scope.loginData = {};
+  $scope.challenged = false;
 
   
   // Create the login modal that we will use later
@@ -23,13 +24,16 @@ angular.module('Frontend.controllers', [])
 
     }
   });
+
   $scope.challengePing = function() {
     var challengeInt = setInterval(function(){
       console.log("timeout fired")
       $http.post('http://localhost:3000/battles/detect_challenge.json', {user_id: $rootScope.loginInfo.id}).success(function(resp){
+        console.log(resp)
         if(resp){
           // need challenger.id
           console.log('challenge detected')
+          $scope.challenged = true; 
           // $location.path('/tab/challenge/id/choose-spells')
           clearInterval(challengeInt)
 
@@ -59,6 +63,7 @@ angular.module('Frontend.controllers', [])
     console.log('Doing login', $scope.loginData);
     $http.post('http://localhost:3000/create_user.json', {login_info: $scope.loginData}).success(function(resp){
       console.log("user logged in, resp:", resp)
+      // $rootScope.currentUser = resp
       $scope.closeLogin();
       $scope.isLoggedIn = true
       $rootScope.loginInfo = resp
@@ -86,7 +91,7 @@ angular.module('Frontend.controllers', [])
   console.log("StatsCtrl called")
 })
 
-.controller('ChallengeCtrl', function($scope, $location,Challengers, Spells, $http, Battle) {
+.controller('ChallengeCtrl', function($scope, $rootScope, $location,Challengers, Spells, $http, Battle) {
   console.log("ChallengersCtrl called")
   $scope.spells = Spells.data;
   $scope.challengers = Challengers.data;
@@ -104,7 +109,8 @@ angular.module('Frontend.controllers', [])
 
   $scope.wizardSelected = function(challengerId) {
     console.log("hi")
-    Battle.data.challenger.id = 1
+    console.log($rootScope.loginInfo)
+    Battle.data.challenger.id = $rootScope.loginInfo.id
     Battle.data.challengee.id = challengerId
     $location.url("/tab/challenge/" + challengerId + "/choose-spells")
   }
