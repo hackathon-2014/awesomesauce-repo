@@ -4,7 +4,8 @@ class BattlesController < ApplicationController
     :edit,
     :update,
     :destroy,
-    :update_battle]
+    :update_battle,
+    :get_challenge_data]
 
   def index
     @battles = Battle.all
@@ -56,7 +57,11 @@ class BattlesController < ApplicationController
       )
       @challengee_spells << @weapon.spell
     end
+  end
 
+  def get_challenge_data
+    @challenger_spells = @battle.weapons.where(user_id: @battle.challenger_id).map(&:spell)
+    @challengee_spells = @battle.weapons.where(user_id: @battle.challengee_id).map(&:spell)
   end
 
   private
