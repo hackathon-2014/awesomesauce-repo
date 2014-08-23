@@ -2,13 +2,13 @@
   <ion-content class="has-header padding">
     <h1 class="title">Choose Spells for your battle against {{challenger.name}}</h1>
     <ion-list>
-    <ion-checkbox class="item-icon-right" ng-repeat="spell in spells.spells" type="item-text-wrap" ng-change="checkChanged(spell)">
+    <ion-checkbox class="item-icon-right" ng-repeat="spell in spells.spells" type="item-text-wrap">
         {{spell.name}}
       </ion-checkbox>
     </ion-list>
     <br>
-    <a href="javascript:void(0);">
-      <button class="button button-outline button-positive" ng-click="sendChallenge({{challenger.id}})">
+    <a ng-click="sendChallenge({{challenger.id}})">
+      <button class="button button-outline button-positive" >
         Send Challenge!
       </button>
     </a>
