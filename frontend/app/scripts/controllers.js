@@ -24,18 +24,18 @@ angular.module('Frontend.controllers', [])
     }
   });
 
-  // var challengeInt = setInterval(function(){
-  //   console.log("timeout fired")
-  //   $http.get('http://localhost:3000/detect_challenge').success(function(resp){
-  //     if(resp.challenge){
-  //       // need challenger.id
-  //       console.log('challenge detected')
-  //       // $location.path('/tab/challenge/id/choose-spells')
-  //       clearInterval(challengeInt)
+  var challengeInt = setInterval(function(){
+    console.log("timeout fired")
+    $http.post('http://localhost:3000/detect_challenge', {user_id: $rootScope.loginInfo.id}).success(function(resp){
+      if(resp){
+        // need challenger.id
+        console.log('challenge detected')
+        // $location.path('/tab/challenge/id/choose-spells')
+        clearInterval(challengeInt)
 
-  //     }
-  //   })
-  // }, 1000)
+      }
+    })
+  }, 1000)
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
