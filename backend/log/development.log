@@ -10085,3 +10085,103 @@ Processing by BattlesController#update_battle as JSON
   [1m[35mUser Load (1.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1
   Rendered battles/update_battle.json.rabl (10.6ms)
 Completed 200 OK in 49ms (Views: 11.8ms | ActiveRecord: 15.8ms)
+
+
+<<<<<<< HEAD
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 19:07:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.4ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (20.2ms)
+Completed 200 OK in 70ms (Views: 25.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 19:07:55 -0400
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.json.rabl (21.2ms)
+Completed 200 OK in 25ms (Views: 21.4ms | ActiveRecord: 3.1ms)
+=======
+Started GET "/" for 127.0.0.1 at 2014-08-23 19:12:59 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (32.5ms)
+  Rendered layouts/_navbar.html.haml (12.7ms)
+Completed 200 OK in 179ms (Views: 178.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 19:13:02 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  Rendered layouts/_navbar.html.haml (1.4ms)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/battles/5/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:13:46 -0400
+
+ActionController::RoutingError (No route matches [GET] "/battles/5/get_challenge_data.json"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (38.8ms)
+
+
+Started GET "/battles/5/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:13:56 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"5"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `weapons' for nil:NilClass):
+  app/controllers/battles_controller.rb:64:in `get_challenge_data'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.0ms)
+
+
+Started GET "/battles/5/get_challenge_data.json" for 127.0.0.1 at 2014-08-23 19:14:07 -0400
+Processing by BattlesController#get_challenge_data as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mBattle Load (0.2ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`id` = 5 LIMIT 1[0m
+  [1m[35mWeapon Load (0.2ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 5 AND `weapons`.`user_id` = 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m
+  [1m[35mSpell Load (0.3ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35mWeapon Load (0.2ms)[0m  SELECT `weapons`.* FROM `weapons`  WHERE `weapons`.`battle_id` = 5 AND `weapons`.`user_id` = 2
+  [1m[36mSpell Load (0.2ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 6 LIMIT 1[0m
+  [1m[35mSpell Load (0.1ms)[0m  SELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered battles/get_challenge_data.json.rabl (20.5ms)
+Completed 200 OK in 57ms (Views: 21.0ms | ActiveRecord: 12.2ms)
+>>>>>>> 3bf52e598fe1ac0a8598ea8ca7823fec2d1a1b85
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
