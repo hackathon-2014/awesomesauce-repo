@@ -49,21 +49,21 @@ angular.module('Frontend', ['ionic', 'config', 'Frontend.controllers', 'Frontend
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.spells', {
+      url: '/spells',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+        'tab-spells': {
+          templateUrl: 'templates/tab-spells.html',
+          controller: 'SpellsCtrl'
         }
       }
     })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
+    .state('tab.spell-detail', {
+      url: '/spells/:spellId',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+        'tab-spells': {
+          templateUrl: 'templates/spell-detail.html',
+          controller: 'SpellsDetailCtrl'
         }
       }
     })
