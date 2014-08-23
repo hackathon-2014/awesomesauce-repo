@@ -1,0 +1,21 @@
+/backend/capybara-*.html
+/backend/.rspec
+/backend/log
+/backend/tmp
+/backend/db/*.sqlite3
+/backend/public/system
+/backend/coverage/
+/backend/spec/tmp
+**.orig
+/backend/config/initializers/secret_token.rb
+/backend/config/secrets.yml
+
+## Environment normalisation:
+/backend/.bundle
+/backend/vendor/bundle
+
+# these should all be checked in to normalise the environment:
+# Gemfile.lock, .ruby-version, .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+# .rvmrc
