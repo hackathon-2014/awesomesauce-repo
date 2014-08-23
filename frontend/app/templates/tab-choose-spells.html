@@ -1,6 +1,6 @@
 <ion-view title="Dashboard">
   <ion-content class="has-header padding">
-    <h1 class="title">Choose Spells for your battle against {{challenger.name}}</h1>
+    <h1 class="spell_title">Choose Spells for your battle</h1>
     <ion-list>
       <ion-checkbox class="item-icon-right" ng-repeat="spell in spells.spells" type="item-text-wrap" value="{{spell.id}}" ng-checked="spellsChosen.indexOf(spell) > -1" ng-click="toggleSelection(spell)" ng-disabled="maxSelected()">
         {{spell.name}}
@@ -8,8 +8,8 @@
     </ion-list>
     <br>
     <a ng-click="sendChallenge({{challenger.id}})">
-      <button class="button button-outline button-positive" >
-        Send Challenge!
+      <button class="button button-full button-dark icon-right ion-wand" >
+        Start Challenge!
       </button>
     </a>
   </ion-content>
