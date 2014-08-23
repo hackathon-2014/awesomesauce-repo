@@ -1,7 +1,7 @@
 'use strict';
 angular.module('Frontend.controllers', [])
 
-.controller('DashCtrl', function($scope, $location, Spells, $ionicModal, $timeout) {
+.controller('DashCtrl', function($http, $scope, $location, Spells, $ionicModal, $timeout) {
   console.log("DashCtrl called")
   //Form data for the login modal
   // console.log("dialogs", $cordovaDialogs)
@@ -14,6 +14,10 @@ angular.module('Frontend.controllers', [])
   }).then(function(modal) {
     $scope.modal = modal;
     // $scope.modal.show();
+    if(!($scope.isLoggedIn())){
+      console.log('logged in is false')
+      $scope.login()
+    }
   });
 
   // Triggered in the login modal to close it
@@ -30,15 +34,21 @@ angular.module('Frontend.controllers', [])
     $scope.modal.show();
   };
 
+
+  $scope.isLoggedIn = function(){
+    return false;
+  }
+
+
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
+    $http.post('http://localhost:3000/users', {login_info: $scope.loginData}).success(function(resp){
+      console.log("user logged in, resp:", resp)
       $scope.closeLogin();
-    }, 1000);
+      
+    })
+    
   }
 
 })
