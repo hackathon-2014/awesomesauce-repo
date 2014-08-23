@@ -38,6 +38,6 @@ class FavoriteListsController < ApplicationController
   end
 
   def list_params
-    params.require(:favorite_list).permit(:name)
+    params.require(:favorite_list).permit(:name, spell_ids: [])
   end
 end

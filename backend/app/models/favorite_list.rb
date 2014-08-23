@@ -1,7 +1,7 @@
 class FavoriteList < ActiveRecord::Base
-  has_many :favorite
-  has_many :spell, through: :favorite
+  has_many :favorites
+  has_many :spells, through: :favorites
   belongs_to :user
 
-  accepts_nested_attributes_for :spell
+  # accepts_nested_attributes_for :spells
 end

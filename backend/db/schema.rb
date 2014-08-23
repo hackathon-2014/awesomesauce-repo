@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140823154438) do
 
-  create_table "identities", force: true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
-
   create_table "favorite_lists", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -35,6 +25,16 @@ ActiveRecord::Schema.define(version: 20140823154438) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "identities", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
   create_table "spells", force: true do |t|
     t.string   "name"
