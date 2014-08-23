@@ -4,9 +4,13 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
+
 <ion-view title="{{spell.name}}">
-  <ion-content has-header="true" padding="true">
-  {{spell.description}}
+  <ion-content has-header="true" padding="true" class="spelldetail">
+    <h2>This Spell:</h2>
+    <p>
+      {{spell.description}}
+    </p>
   </ion-content>
 </ion-view>
 
