@@ -112,12 +112,12 @@ angular.module('Frontend.controllers', [])
     console.log("challenge data sent")
     var newBattle = {battle:{
       challenger_id: Battle.data.challenger.id,
-      challengee_id: Battle.data.challengee.id
+      challenger_spells: $scope.spellsChosen,
+      challengee_id: Battle.data.challengee.id,
+      challengee_spells: []
     }}
     $http.post('http://localhost:3000/battles.json',newBattle).success(function(data, status, headers, config){
       Battle.data = data;
-      Battle.data.challengee.spellsChosen = []
-      Battle.data.challenger.spellsChosen = []
       $location.url("/tab/challenge/" + challengerId + "/battle")
     })
   }

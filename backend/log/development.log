@@ -6950,3 +6950,254 @@ Migrating to AddChallengerIdAndChallengeeIdToBattles (20140823185702)
   [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'kevin@kevin.com' LIMIT 1[0m
   [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `email`, `encrypted_password`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'kevin@kevin.com', '$2a$10$.1Y/TPdn/dbvqm.wFEAan.WXS/MCBAHd9JoBgFm21FWlQxbK/kVIW', 'Kevin', '2014-08-23 20:33:00')
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:06:07 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.4ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (46.8ms)
+Completed 200 OK in 90ms (Views: 43.3ms | ActiveRecord: 20.6ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:06:07 -0400
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.json.rabl (43.9ms)
+Completed 200 OK in 52ms (Views: 30.1ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:06:09 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.7ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (23.3ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.7ms)
+
+
+Started OPTIONS "/battles.json" for 127.0.0.1 at 2014-08-23 17:06:13 -0400
+
+
+Started POST "/battles.json" for 127.0.0.1 at 2014-08-23 17:06:13 -0400
+Value for params[:battle][:challengee_spells] was set to nil, because it was one of [], [null] or [null, null, ...]. Go to http://guides.rubyonrails.org/security.html#unsafe-query-generation for more information.
+Processing by BattlesController#create as JSON
+  Parameters: {"battle"=>{"challenger_id"=>1, "challenger_spells"=>[{"id"=>4, "name"=>"Expelliarmus", "description"=>"disarms someone", "damage_count"=>nil}, {"id"=>3, "name"=>"Expecto Patronum", "description"=>"Conjures an incarnation of the caster", "damage_count"=>nil}, {"id"=>2, "name"=>"Reparo", "description"=>"Used to repair broken or damaged objects", "damage_count"=>nil}], "challengee_id"=>1, "challengee_spells"=>nil}}
+Unpermitted parameters: challenger_spells, challengee_spells
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `battles` (`challengee_id`, `challenger_id`, `created_at`, `updated_at`, `workflow_state`) VALUES (1, 1, '2014-08-23 21:06:13', '2014-08-23 21:06:13', 'challenged')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered battles/create.json.rabl (29.9ms)
+Completed 200 OK in 67ms (Views: 33.5ms | ActiveRecord: 21.9ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:07:21 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.6ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (26.9ms)
+Completed 200 OK in 40ms (Views: 24.0ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:07:28 -0400
+Processing by SpellsController#index as JSON
+  [1m[36mSpell Load (1.5ms)[0m  [1mSELECT `spells`.* FROM `spells`[0m
+  Rendered spells/index.json.rabl (21.4ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:07:28 -0400
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (1.2ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.json.rabl (53.3ms)
+Completed 200 OK in 64ms (Views: 42.5ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:07:30 -0400
+Processing by SpellsController#index as JSON
+  [1m[36mSpell Load (0.7ms)[0m  [1mSELECT `spells`.* FROM `spells`[0m
+  Rendered spells/index.json.rabl (24.2ms)
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/battles.json" for 127.0.0.1 at 2014-08-23 17:07:35 -0400
+Value for params[:battle][:challengee_spells] was set to nil, because it was one of [], [null] or [null, null, ...]. Go to http://guides.rubyonrails.org/security.html#unsafe-query-generation for more information.
+Processing by BattlesController#create as JSON
+  Parameters: {"battle"=>{"challenger_id"=>1, "challenger_spells"=>[{"id"=>3, "name"=>"Expecto Patronum", "description"=>"Conjures an incarnation of the caster", "damage_count"=>nil}, {"id"=>2, "name"=>"Reparo", "description"=>"Used to repair broken or damaged objects", "damage_count"=>nil}, {"id"=>4, "name"=>"Expelliarmus", "description"=>"disarms someone", "damage_count"=>nil}], "challengee_id"=>4, "challengee_spells"=>nil}}
+Unpermitted parameters: challenger_spells, challengee_spells
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `battles` (`challengee_id`, `challenger_id`, `created_at`, `updated_at`, `workflow_state`) VALUES (4, 1, '2014-08-23 21:07:35', '2014-08-23 21:07:35', 'challenged')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+Completed 500 Internal Server Error in 39ms
+
+NameError (uninitialized constant Battle::Weapon):
+  app/controllers/battles_controller.rb:19:in `block in create'
+  app/controllers/battles_controller.rb:17:in `each'
+  app/controllers/battles_controller.rb:17:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.4ms)
+
+
+Started POST "/battles.json" for 127.0.0.1 at 2014-08-23 17:09:11 -0400
+Value for params[:battle][:challengee_spells] was set to nil, because it was one of [], [null] or [null, null, ...]. Go to http://guides.rubyonrails.org/security.html#unsafe-query-generation for more information.
+Processing by BattlesController#create as JSON
+  Parameters: {"battle"=>{"challenger_id"=>1, "challenger_spells"=>[{"id"=>3, "name"=>"Expecto Patronum", "description"=>"Conjures an incarnation of the caster", "damage_count"=>nil}, {"id"=>2, "name"=>"Reparo", "description"=>"Used to repair broken or damaged objects", "damage_count"=>nil}, {"id"=>4, "name"=>"Expelliarmus", "description"=>"disarms someone", "damage_count"=>nil}], "challengee_id"=>4, "challengee_spells"=>nil}}
+Unpermitted parameters: challenger_spells, challengee_spells
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `battles` (`challengee_id`, `challenger_id`, `created_at`, `updated_at`, `workflow_state`) VALUES (4, 1, '2014-08-23 21:09:11', '2014-08-23 21:09:11', 'challenged')
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 29ms
+
+NameError (uninitialized constant Battle::Weapon):
+  app/controllers/battles_controller.rb:20:in `block in create'
+  app/controllers/battles_controller.rb:17:in `each'
+  app/controllers/battles_controller.rb:17:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.7ms)
+
+
+Started POST "/battles.json" for 127.0.0.1 at 2014-08-23 17:09:38 -0400
+Value for params[:battle][:challengee_spells] was set to nil, because it was one of [], [null] or [null, null, ...]. Go to http://guides.rubyonrails.org/security.html#unsafe-query-generation for more information.
+Processing by BattlesController#create as JSON
+  Parameters: {"battle"=>{"challenger_id"=>1, "challenger_spells"=>[{"id"=>3, "name"=>"Expecto Patronum", "description"=>"Conjures an incarnation of the caster", "damage_count"=>nil}, {"id"=>2, "name"=>"Reparo", "description"=>"Used to repair broken or damaged objects", "damage_count"=>nil}, {"id"=>4, "name"=>"Expelliarmus", "description"=>"disarms someone", "damage_count"=>nil}], "challengee_id"=>4, "challengee_spells"=>nil}}
+Unpermitted parameters: challenger_spells, challengee_spells
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `battles` (`challengee_id`, `challenger_id`, `created_at`, `updated_at`, `workflow_state`) VALUES (4, 1, '2014-08-23 21:09:38', '2014-08-23 21:09:38', 'challenged')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (19, '2014-08-23 21:09:38', 3, '2014-08-23 21:09:38', 1)
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (19, '2014-08-23 21:09:38', 2, '2014-08-23 21:09:38', 1)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (19, '2014-08-23 21:09:38', 4, '2014-08-23 21:09:38', 1)
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered battles/create.json.rabl (37.9ms)
+Completed 200 OK in 79ms (Views: 21.0ms | ActiveRecord: 31.7ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:12:48 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.3ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (47.5ms)
+Completed 200 OK in 62ms (Views: 28.3ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:12:49 -0400
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.json.rabl (47.1ms)
+Completed 200 OK in 54ms (Views: 33.8ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:12:51 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.3ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (25.0ms)
+Completed 200 OK in 30ms (Views: 29.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/battles.json" for 127.0.0.1 at 2014-08-23 17:12:56 -0400
+Value for params[:battle][:challengee_spells] was set to nil, because it was one of [], [null] or [null, null, ...]. Go to http://guides.rubyonrails.org/security.html#unsafe-query-generation for more information.
+Processing by BattlesController#create as JSON
+  Parameters: {"battle"=>{"challenger_id"=>1, "challenger_spells"=>[{"id"=>2, "name"=>"Reparo", "description"=>"Used to repair broken or damaged objects", "damage_count"=>nil}, {"id"=>3, "name"=>"Expecto Patronum", "description"=>"Conjures an incarnation of the caster", "damage_count"=>nil}, {"id"=>4, "name"=>"Expelliarmus", "description"=>"disarms someone", "damage_count"=>nil}], "challengee_id"=>7, "challengee_spells"=>nil}}
+Unpermitted parameters: challenger_spells, challengee_spells
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `battles` (`challengee_id`, `challenger_id`, `created_at`, `updated_at`, `workflow_state`) VALUES (7, 1, '2014-08-23 21:12:56', '2014-08-23 21:12:56', 'challenged')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (20, '2014-08-23 21:12:56', 2, '2014-08-23 21:12:56', 1)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (20, '2014-08-23 21:12:56', 3, '2014-08-23 21:12:56', 1)
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (20, '2014-08-23 21:12:56', 4, '2014-08-23 21:12:56', 1)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered battles/create.json.rabl (6.5ms)
+Completed 500 Internal Server Error in 87ms
+
+ActionView::Template::Error (undefined method `name' for #<Weapon:0x007fa13cdd9520>):
+    1: object @battle
+    2: attributes :id
+    3: node{}
+    4: node(:challenger) do |battle| 
+    5:   { 
+  app/views/battles/create.json.rabl:2:in `_app_views_battles_create_json_rabl___3055782093135438002_70165243174760'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.8ms)
+
+
+Started POST "/battles.json" for 127.0.0.1 at 2014-08-23 17:13:39 -0400
+Value for params[:battle][:challengee_spells] was set to nil, because it was one of [], [null] or [null, null, ...]. Go to http://guides.rubyonrails.org/security.html#unsafe-query-generation for more information.
+Processing by BattlesController#create as JSON
+  Parameters: {"battle"=>{"challenger_id"=>1, "challenger_spells"=>[{"id"=>2, "name"=>"Reparo", "description"=>"Used to repair broken or damaged objects", "damage_count"=>nil}, {"id"=>3, "name"=>"Expecto Patronum", "description"=>"Conjures an incarnation of the caster", "damage_count"=>nil}, {"id"=>4, "name"=>"Expelliarmus", "description"=>"disarms someone", "damage_count"=>nil}], "challengee_id"=>7, "challengee_spells"=>nil}}
+Unpermitted parameters: challenger_spells, challengee_spells
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `battles` (`challengee_id`, `challenger_id`, `created_at`, `updated_at`, `workflow_state`) VALUES (7, 1, '2014-08-23 21:13:39', '2014-08-23 21:13:39', 'challenged')[0m
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (21, '2014-08-23 21:13:39', 2, '2014-08-23 21:13:39', 1)
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (21, '2014-08-23 21:13:39', 3, '2014-08-23 21:13:39', 1)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (21, '2014-08-23 21:13:39', 4, '2014-08-23 21:13:39', 1)
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  Rendered battles/create.json.rabl (3.4ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined method `name' for #<Weapon:0x007fa13b6caeb0>):
+    1: object @battle
+    2: attributes :id
+    3: node(:challenger) do |battle| 
+    4:   { 
+    5:     id: battle.challenger.id,
+  app/views/battles/create.json.rabl:2:in `_app_views_battles_create_json_rabl___3055782093135438002_70165244899540'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.7ms)
+
+
+Started POST "/battles.json" for 127.0.0.1 at 2014-08-23 17:14:19 -0400
+Value for params[:battle][:challengee_spells] was set to nil, because it was one of [], [null] or [null, null, ...]. Go to http://guides.rubyonrails.org/security.html#unsafe-query-generation for more information.
+Processing by BattlesController#create as JSON
+  Parameters: {"battle"=>{"challenger_id"=>1, "challenger_spells"=>[{"id"=>2, "name"=>"Reparo", "description"=>"Used to repair broken or damaged objects", "damage_count"=>nil}, {"id"=>3, "name"=>"Expecto Patronum", "description"=>"Conjures an incarnation of the caster", "damage_count"=>nil}, {"id"=>4, "name"=>"Expelliarmus", "description"=>"disarms someone", "damage_count"=>nil}], "challengee_id"=>7, "challengee_spells"=>nil}}
+Unpermitted parameters: challenger_spells, challengee_spells
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `battles` (`challengee_id`, `challenger_id`, `created_at`, `updated_at`, `workflow_state`) VALUES (7, 1, '2014-08-23 21:14:19', '2014-08-23 21:14:19', 'challenged')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (22, '2014-08-23 21:14:19', 2, '2014-08-23 21:14:19', 1)[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (22, '2014-08-23 21:14:19', 3, '2014-08-23 21:14:19', 1)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `weapons` (`battle_id`, `created_at`, `spell_id`, `updated_at`, `user_id`) VALUES (22, '2014-08-23 21:14:19', 4, '2014-08-23 21:14:19', 1)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`  WHERE `spells`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 7 LIMIT 1[0m
+  Rendered battles/create.json.rabl (28.5ms)
+Completed 200 OK in 88ms (Views: 27.6ms | ActiveRecord: 15.4ms)

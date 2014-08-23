@@ -14,6 +14,16 @@ class BattlesController < ApplicationController
 
   def create
     @battle = Battle.create battle_params
+    @spells = []
+    params[:battle][:challenger_spells].each do |spell|
+      # p spell
+      
+      @weapon = @battle.weapons.create(
+        spell_id: spell[:id],
+        user_id: params[:battle][:challenger_id]
+      )
+      @spells << @weapon.spell
+    end
   end
 
   def update
