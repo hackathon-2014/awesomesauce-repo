@@ -32,7 +32,10 @@ angular.module('Frontend.controllers', [])
         console.log(resp)
         if(resp){
           // need challenger.id
+          if(resp == " "){}
+          else{
           Battle.data = resp
+        }
           $scope.challenged = true; 
           // $location.path('/tab/challenge/id/choose-spells')
           clearInterval(challengeInt)
