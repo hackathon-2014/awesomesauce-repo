@@ -84,6 +84,12 @@ angular.module('Frontend.services', [])
   };
   Battle.allChallengers = function() {
     return Battle.data.challengers;
+  },
+  Battle.getAllData = function(challengeId) {
+    $http.get("http://localhost:3000/battles/" + challengeId + '/get_challenge_data.json').success(function(data) {
+        console.log(data);
+        Battle.data = data;
+    });
   }
   return Battle;
   }

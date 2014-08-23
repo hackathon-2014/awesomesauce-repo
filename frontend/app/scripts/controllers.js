@@ -160,7 +160,7 @@ angular.module('Frontend.controllers', [])
       Battle.data = data;
       Battle.data.challengee.spellsChosen = []
       Battle.data.challenger.spellsChosen = []
-      $location.url("/tab/challenge/" + challengerId + "/battle")
+      $location.url("/tab/challenge/" + Battle.data.id + "/battle")
     })
   }
 })
@@ -204,10 +204,48 @@ angular.module('Frontend.controllers', [])
   }
 })
 
-.controller('BattleCtrl', function($scope, Battle) {
+.controller('BattleCtrl', function($scope, $stateParams, Battle, $http, $rootScope) {
   console.log("ChallengersCtrl called")
   console.log(Battle.data);
   $scope.battle = Battle.data;
   // $scope.challengers = Challenge.allChallengers()
+  $scope.challengePing = function() {
+    var challengeInt = setInterval(function(){
+      console.log("timeout fired")
+      $http.get('http://localhost:3000/battles/' + $stateParams.challengeId + '/get_challenge_data.json').success(function(resp){
+        console.log(resp)
+        Battle.data = resp;
+        $scope.battle = resp;
+        // clearInterval(challengeInt)
+      })
+    }, 1000)
+  };
+  $scope.challengePing();
+  $scope.castSpell = function(spell) {
+    console.log("You cast " + spell.name)
+  }  
+})
+
+.controller('ChallengeeBattleCtrl', function($scope, $stateParams, Battle, $http, $rootScope) {
+  console.log("ChallengeesCtrl called")
+  console.log(Battle.data);
+  $scope.battle = Battle.data;
+  // $scope.challengers = Challenge.allChallengers()
+  $scope.challengePing = function() {
+    var challengeInt = setInterval(function(){
+      console.log("timeout fired")
+      $http.get('http://localhost:3000/battles/' + $stateParams.challengeId + '/get_challenge_data.json').success(function(resp){
+        console.log(resp)
+        Battle.data = resp;
+        $scope.battle = resp;
+        // clearInterval(challengeInt)
+      })
+    }, 1000)
+  };
+  $scope.challengePing();
+
+  $scope.castSpell = function(spell) {
+    console.log("You cast " + spell.name)
+  }
   
 });

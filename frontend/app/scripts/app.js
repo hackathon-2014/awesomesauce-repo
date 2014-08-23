@@ -109,11 +109,21 @@ angular.module('Frontend', ['ionic', 'config', 'Frontend.controllers', 'Frontend
     })
 
     .state('tab.battle', {
-      url: '/challenge/:challengerId/battle',
+      url: '/challenge/:challengeId/battle',
       views: {
         'tab-dash': {
           templateUrl: 'templates/tab-battle.html',
           controller: 'BattleCtrl'
+        }
+      }
+    })
+
+    .state('tab.challengee-battle', {
+      url: '/challengee/:battleId/battle',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/tab-challengee-battle.html',
+          controller: 'ChallengeeBattleCtrl'
         }
       }
     });

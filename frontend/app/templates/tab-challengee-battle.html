@@ -6,13 +6,13 @@
     vs
     {{battle.challengee.name || battle.challengee.email}}
     <br>
-    <h3>Your Spells</h3>
-    <a class="button" ng-repeat="spell in battle.challenger.spells" ng-click="castSpell(spell)">
+    <h3>Their Spells</h3>
+    <a class="button" ng-repeat="spell in battle.challenger.spells">
       {{spell.name}}
     </a>
 
-    <h3>Their Spells</h3>
-    <a class="button" ng-repeat="spell in battle.challengee.spells">
+    <h3>Your Spells</h3>
+    <a class="button" ng-repeat="spell in battle.challengee.spells" ng-click="castSpell(spell)">
       {{spell.name}}
     </a>
 
