@@ -4,6 +4,10 @@ class SpellsController < ApplicationController
     :update,
     :destroy]
 
+  def index
+    @spell = Spell.all
+  end
+
   def new
     @spell = Spell.new
   end

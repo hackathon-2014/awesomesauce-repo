@@ -834,3 +834,672 @@ Migrating to AddUnconfirmedEmailToUsers (20140823143008)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823143008')
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/food_trucks" for 127.0.0.1 at 2014-08-23 11:19:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (No route matches [GET] "/food_trucks"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.8ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (63.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 11:19:36 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (39.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 61  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (22.9ms)
+Completed 200 OK in 1345ms (Views: 1310.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-08-23 11:19:49 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.haml within layouts/application (25.6ms)
+  Rendered layouts/_navbar.html.haml (0.4ms)
+Completed 200 OK in 69ms (Views: 49.8ms | ActiveRecord: 17.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-08-23 11:20:00 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"loL/+brCHO+5r2D4eR0YntxPgUk7ubkCGMbzjQYgy+M=", "user"=>{"email"=>"kevincol54@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'kevincol54@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`created_at`, `email`, `encrypted_password`, `updated_at`) VALUES ('2014-08-23 15:20:00', 'kevincol54@gmail.com', '$2a$10$z058HMtKssgdtRaRo9b8curDj4k8iwcThekUVBzmVuMa8wxmphiTG', '2014-08-23 15:20:00')[0m
+  [1m[35m (15.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `users` SET `current_sign_in_at` = '2014-08-23 15:20:00', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_at` = '2014-08-23 15:20:00', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2014-08-23 15:20:00' WHERE `users`.`id` = 1
+  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 277ms (ActiveRecord: 32.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 11:20:00 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (1.5ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 11:20:42 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_navbar.html.haml (5.4ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 11:41:01 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (22.7ms)
+Completed 200 OK in 38ms (Views: 30.9ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/favorite_lists_path" for 127.0.0.1 at 2014-08-23 11:41:04 -0400
+
+ActionController::RoutingError (No route matches [GET] "/favorite_lists_path"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (36.2ms)
+
+
+Started GET "/favorite_lists_path" for 127.0.0.1 at 2014-08-23 11:41:04 -0400
+
+ActionController::RoutingError (No route matches [GET] "/favorite_lists_path"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (26.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 11:41:31 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (38.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (40.7ms)
+Completed 200 OK in 182ms (Views: 152.5ms | ActiveRecord: 17.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 11:41:31 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_navbar.html.haml (1.5ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/favorite_lists_path" for 127.0.0.1 at 2014-08-23 11:41:34 -0400
+
+ActionController::RoutingError (No route matches [GET] "/favorite_lists_path"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.3ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.7ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (34.7ms)
+
+
+Started GET "/favorite_lists_path" for 127.0.0.1 at 2014-08-23 11:41:35 -0400
+
+ActionController::RoutingError (No route matches [GET] "/favorite_lists_path"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (26.7ms)
+
+
+Started GET "/favorite_lists_path" for 127.0.0.1 at 2014-08-23 11:42:44 -0400
+
+ActionController::RoutingError (No route matches [GET] "/favorite_lists_path"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 11:43:54 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (22.5ms)
+Completed 200 OK in 34ms (Views: 26.4ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/favorite_lists" for 127.0.0.1 at 2014-08-23 11:43:56 -0400
+Processing by FavoriteListsController#index as HTML
+Completed 500 Internal Server Error in 24ms
+
+LoadError (Unable to autoload constant Favorite_list, expected /Users/kevin/hackathon/awesomesauce-repo/backend/app/models/favorite_list.rb to define it):
+  app/controllers/favorite_lists_controller.rb:8:in `index'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.7ms)
+
+
+Started GET "/favorite_lists" for 127.0.0.1 at 2014-08-23 11:43:57 -0400
+Processing by FavoriteListsController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+RuntimeError (Circular dependency detected while autoloading constant Favorite_list):
+  app/controllers/favorite_lists_controller.rb:8:in `index'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.6ms)
+
+
+Started GET "/favorite_lists" for 127.0.0.1 at 2014-08-23 11:44:16 -0400
+Processing by FavoriteListsController#index as HTML
+  Rendered favorite_lists/index.html.haml within layouts/application (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_navbar.html.haml (11.8ms)
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/favorite_lists" for 127.0.0.1 at 2014-08-23 11:46:56 -0400
+Processing by FavoriteListsController#index as HTML
+  Rendered favorite_lists/index.html.haml within layouts/application (1.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (2.2ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/favorite_lists/new" for 127.0.0.1 at 2014-08-23 11:46:58 -0400
+Processing by FavoriteListsController#new as HTML
+Completed 500 Internal Server Error in 6ms
+
+LoadError (Unable to autoload constant Favorite_list, expected /Users/kevin/hackathon/awesomesauce-repo/backend/app/models/favorite_list.rb to define it):
+  app/controllers/favorite_lists_controller.rb:12:in `new'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.7ms)
+
+
+Started GET "/favorite_lists/new" for 127.0.0.1 at 2014-08-23 11:46:58 -0400
+Processing by FavoriteListsController#new as HTML
+Completed 500 Internal Server Error in 2ms
+
+RuntimeError (Circular dependency detected while autoloading constant Favorite_list):
+  app/controllers/favorite_lists_controller.rb:12:in `new'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.3ms)
+
+
+Started GET "/favorite_lists/new" for 127.0.0.1 at 2014-08-23 11:48:07 -0400
+Processing by FavoriteListsController#new as HTML
+  Rendered favorite_lists/_form.html.haml (1.0ms)
+  Rendered favorite_lists/new.html.haml within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (The line was indented 2 levels deeper than the previous line.):
+    3: = simple_form for @favorite do |f|
+    4:   =f.input :name
+    5:   - Spell.all.each do |spell|
+    6:       = check_box_tag 'location[location_ids][]', location.id, false, {id: "spell_id_#{spell.id}", class: "spell_checkbox", spell_id: spell.id}
+    7:       = label_tag "spell_id_#{spell.id}", spell.name 
+    8:   =f.button :submit, class: 'btn btn-primary'
+  app/views/favorite_lists/_form.html.haml:6
+  app/views/favorite_lists/new.html.haml:2:in `_app_views_favorite_lists_new_html_haml___3125488134161232001_70182696755600'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.2ms)
+
+
+Started GET "/favorite_lists/new" for 127.0.0.1 at 2014-08-23 11:48:53 -0400
+Processing by FavoriteListsController#new as HTML
+  Rendered favorite_lists/_form.html.haml (0.8ms)
+  Rendered favorite_lists/new.html.haml within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (The line was indented 2 levels deeper than the previous line.):
+    3: = simple_form for @favorite do |f|
+    4:   =f.input :name
+    5:   - Spell.all.each do |spell|
+    6:       = check_box_tag 'location[location_ids][]', location.id, false, {id: "spell_id_#{spell.id}", class: "spell_checkbox", spell_id: spell.id}
+    7:       = label_tag "spell_id_#{spell.id}", spell.name 
+    8:   =f.button :submit, class: 'btn btn-primary'
+  app/views/favorite_lists/_form.html.haml:6
+  app/views/favorite_lists/new.html.haml:2:in `_app_views_favorite_lists_new_html_haml___3125488134161232001_70182696755600'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.8ms)
+
+
+Started GET "/favorite_lists/new" for 127.0.0.1 at 2014-08-23 11:49:23 -0400
+Processing by FavoriteListsController#new as HTML
+  Rendered favorite_lists/_form.html.haml (1.4ms)
+  Rendered favorite_lists/new.html.haml within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 5ms
+
+SyntaxError (/Users/kevin/hackathon/awesomesauce-repo/backend/app/views/favorite_lists/_form.html.haml:3: syntax error, unexpected keyword_do_block, expecting :: or '[' or '.'
+haml_temp =  simple_form for @favorite do |f|
+                                         ^
+/Users/kevin/hackathon/awesomesauce-repo/backend/app/views/favorite_lists/_form.html.haml:5: syntax error, unexpected keyword_do_block, expecting keyword_end
+));}\n", 0, false); Spell.all.each do |spell|
+                                     ^
+/Users/kevin/hackathon/awesomesauce-repo/backend/app/views/favorite_lists/_form.html.haml:9: syntax error, unexpected keyword_ensure, expecting end-of-input
+...:Util.html_safe(_erbout);ensure;@haml_buffer = @haml_buffer....
+...                               ^):
+  app/views/favorite_lists/new.html.haml:2:in `_app_views_favorite_lists_new_html_haml___3125488134161232001_70182696755600'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.4ms)
+
+
+Started GET "/favorite_lists/new" for 127.0.0.1 at 2014-08-23 11:49:50 -0400
+Processing by FavoriteListsController#new as HTML
+  Rendered favorite_lists/_form.html.haml (45.7ms)
+  Rendered favorite_lists/new.html.haml within layouts/application (46.5ms)
+Completed 500 Internal Server Error in 50ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: %h1 favorite list form
+    2: 
+    3: = simple_form_for @favorite do |f|
+    4:   =f.input :name
+    5:   - Spell.all.each do |spell|
+    6:     = check_box_tag 'location[location_ids][]', location.id, false, {id: "spell_id_#{spell.id}", class: "spell_checkbox", spell_id: spell.id}
+  app/views/favorite_lists/_form.html.haml:3:in `_app_views_favorite_lists__form_html_haml___901437947068287191_70182727799080'
+  app/views/favorite_lists/new.html.haml:2:in `_app_views_favorite_lists_new_html_haml___3125488134161232001_70182696755600'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.8ms)
+
+
+Started GET "/favorite_lists/new" for 127.0.0.1 at 2014-08-23 11:50:10 -0400
+Processing by FavoriteListsController#new as HTML
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT `spells`.* FROM `spells`[0m
+  Rendered favorite_lists/_form.html.haml (86.0ms)
+  Rendered favorite_lists/new.html.haml within layouts/application (86.8ms)
+Completed 500 Internal Server Error in 91ms
+
+ActionView::Template::Error (undefined local variable or method `location' for #<#<Class:0x007fa95c883ad0>:0x007fa95f68f960>):
+    3: = simple_form_for @list do |f|
+    4:   =f.input :name
+    5:   - Spell.all.each do |spell|
+    6:     = check_box_tag 'location[location_ids][]', location.id, false, {id: "spell_id_#{spell.id}", class: "spell_checkbox", spell_id: spell.id}
+    7:     = label_tag "spell_id_#{spell.id}", spell.name 
+    8:   =f.button :submit, class: 'btn btn-primary'
+  app/views/favorite_lists/_form.html.haml:6:in `block (2 levels) in _app_views_favorite_lists__form_html_haml___901437947068287191_70182713435760'
+  app/views/favorite_lists/_form.html.haml:5:in `block in _app_views_favorite_lists__form_html_haml___901437947068287191_70182713435760'
+  app/views/favorite_lists/_form.html.haml:3:in `_app_views_favorite_lists__form_html_haml___901437947068287191_70182713435760'
+  app/views/favorite_lists/new.html.haml:2:in `_app_views_favorite_lists_new_html_haml___3125488134161232001_70182696755600'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.4ms)
+
+
+Started GET "/favorite_lists/new" for 127.0.0.1 at 2014-08-23 11:50:45 -0400
+Processing by FavoriteListsController#new as HTML
+  [1m[35mSpell Load (0.3ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered favorite_lists/_form.html.haml (10.0ms)
+  Rendered favorite_lists/new.html.haml within layouts/application (10.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_navbar.html.haml (14.1ms)
+Completed 200 OK in 36ms (Views: 31.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/favorite_lists/new" for 127.0.0.1 at 2014-08-23 11:50:58 -0400
+Processing by FavoriteListsController#new as HTML
+  [1m[35mSpell Load (0.3ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered favorite_lists/_form.html.haml (8.5ms)
+  Rendered favorite_lists/new.html.haml within layouts/application (9.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered layouts/_navbar.html.haml (1.9ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/favorite_lists" for 127.0.0.1 at 2014-08-23 11:56:15 -0400
+Processing by FavoriteListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"loL/+brCHO+5r2D4eR0YntxPgUk7ubkCGMbzjQYgy+M=", "favorite_list"=>{"name"=>"test list"}, "spell"=>{"spell_ids"=>["1", "3", "5", "7"]}, "commit"=>"Create Favorite list"}
+Completed 500 Internal Server Error in 4ms
+
+ArgumentError (No association found for name `spells'. Has it been defined yet?):
+  app/models/favorite_list.rb:6:in `<class:FavoriteList>'
+  app/models/favorite_list.rb:1:in `<top (required)>'
+  app/controllers/favorite_lists_controller.rb:16:in `create'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.4ms)
+
+
+Started POST "/favorite_lists" for 127.0.0.1 at 2014-08-23 11:56:29 -0400
+Processing by FavoriteListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"loL/+brCHO+5r2D4eR0YntxPgUk7ubkCGMbzjQYgy+M=", "favorite_list"=>{"name"=>"test list"}, "spell"=>{"spell_ids"=>["1", "3", "5", "7"]}, "commit"=>"Create Favorite list"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `favorite_lists` (`created_at`, `name`, `updated_at`) VALUES ('2014-08-23 15:56:29', 'test list', '2014-08-23 15:56:29')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 500 Internal Server Error in 15ms
+
+ActionView::MissingTemplate (Missing template favorite_lists/create, application/create with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee, :haml]}. Searched in:
+  * "/Users/kevin/hackathon/awesomesauce-repo/backend/app/views"
+  * "/Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/devise-3.2.4/app/views"
+):
+  actionview (4.1.1) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.1.1) lib/action_view/lookup_context.rb:124:in `find'
+  actionview (4.1.1) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.1.1) lib/action_view/renderer/template_renderer.rb:41:in `determine_template'
+  actionview (4.1.1) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.1.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.1) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.1) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.1) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.1) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.1) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.1) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.1) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack-cors (0.2.9) lib/rack/cors.rb:54:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.6ms)
+
+
+Started POST "/favorite_lists" for 127.0.0.1 at 2014-08-23 11:57:53 -0400
+Processing by FavoriteListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"loL/+brCHO+5r2D4eR0YntxPgUk7ubkCGMbzjQYgy+M=", "favorite_list"=>{"name"=>"test list"}, "spell"=>{"spell_ids"=>["1", "3", "5", "7"]}, "commit"=>"Create Favorite list"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `favorite_lists` (`created_at`, `name`, `updated_at`) VALUES ('2014-08-23 15:57:53', 'test list', '2014-08-23 15:57:53')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/favorite_lists
+Completed 302 Found in 18ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/favorite_lists" for 127.0.0.1 at 2014-08-23 11:57:53 -0400
+Processing by FavoriteListsController#index as HTML
+  Rendered favorite_lists/index.html.haml within layouts/application (0.3ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (13.2ms)
+Completed 200 OK in 24ms (Views: 20.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/favorite_lists" for 127.0.0.1 at 2014-08-23 11:58:56 -0400
+Processing by FavoriteListsController#index as HTML
+  [1m[36mFavoriteList Load (0.3ms)[0m  [1mSELECT `favorite_lists`.* FROM `favorite_lists`[0m
+  Rendered favorite_lists/index.html.haml within layouts/application (111.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (1.9ms)
+Completed 200 OK in 124ms (Views: 90.7ms | ActiveRecord: 31.9ms)
+
+
+Started GET "/favorite_lists" for 127.0.0.1 at 2014-08-23 11:59:09 -0400
+Processing by FavoriteListsController#index as HTML
+  [1m[36mFavoriteList Load (0.3ms)[0m  [1mSELECT `favorite_lists`.* FROM `favorite_lists`[0m
+  Rendered favorite_lists/index.html.haml within layouts/application (3.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (1.7ms)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.6ms)

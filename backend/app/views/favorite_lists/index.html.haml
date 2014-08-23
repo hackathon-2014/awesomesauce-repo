@@ -1,0 +1,8 @@
+%h1 index favorite list
+
+= link_to "new list", new_favorite_list_path
+
+- @list.each do |list|
+  %br
+  =list.name
+  =list.spell
