@@ -2,7 +2,7 @@ class Battle < ActiveRecord::Base
   belongs_to :challenger, class_name: "User", foreign_key: :challenger_id
   belongs_to :challengee, class_name: "User", foreign_key: :challengee_id
 
-  include workflow
+  include Workflow
   workflow do 
     state :challenged do
       event :play, transitions_to: :playing

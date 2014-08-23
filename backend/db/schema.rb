@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823183132) do
+ActiveRecord::Schema.define(version: 20140823185702) do
 
   create_table "battles", force: true do |t|
     t.string   "workflow_state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "challenger_id"
+    t.integer  "challengee_id"
   end
 
   create_table "favorite_lists", force: true do |t|
