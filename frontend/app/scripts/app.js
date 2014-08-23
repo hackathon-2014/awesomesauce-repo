@@ -98,6 +98,16 @@ angular.module('Frontend', ['ionic', 'config', 'Frontend.controllers', 'Frontend
       }
     })
 
+    .state('tab.choose-challengee-spells', {
+      url: '/challenge/:challengerId/choose-challengee-spells',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/tab-choose-challengee-spells.html',
+          controller: 'ChooseChallengeeSpellsCtrl'
+        }
+      }
+    })
+
     .state('tab.battle', {
       url: '/challenge/:challengerId/battle',
       views: {
