@@ -8117,6 +8117,211 @@ Migrating to AddAnotherFieldSomewhereCool (20140823210527)
   [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823210527')
   [1m[36m (26.4ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+<<<<<<< HEAD
+  [1m[36m (239.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (212.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DeviseCreateUsers (20140515183500)
+  [1m[35m (199.7ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (242.8ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (158.8ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140515183500')
+  [1m[36m (15.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddConfirmableToUsers (20140823141723)
+  [1m[35m (240.8ms)[0m  ALTER TABLE `users` ADD `confirmation_token` varchar(255)
+  [1m[36m (200.2ms)[0m  [1mALTER TABLE `users` ADD `confirmed_at` datetime[0m
+  [1m[35m (155.8ms)[0m  ALTER TABLE `users` ADD `confirmation_sent_at` datetime
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823141723')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFavoriteLists (20140823142054)
+  [1m[35m (233.9ms)[0m  CREATE TABLE `favorite_lists` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823142054')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSpells (20140823142112)
+  [1m[35m (183.9ms)[0m  CREATE TABLE `spells` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `desrciption` varchar(255), `damage_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823142112')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFavorites (20140823142120)
+  [1m[35m (117.8ms)[0m  CREATE TABLE `favorites` (`id` int(11) auto_increment PRIMARY KEY, `favorite_list_id` int(11), `spell_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823142120')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddUnconfirmedEmailToUsers (20140823143008)
+  [1m[35m (148.6ms)[0m  ALTER TABLE `users` ADD `unconfirmed_email` varchar(255)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823143008')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateIdentities (20140823143605)
+  [1m[35m (220.6ms)[0m  CREATE TABLE `identities` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `provider` varchar(255), `uid` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (159.1ms)[0m  [1mCREATE  INDEX `index_identities_on_user_id`  ON `identities` (`user_id`) [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140823143605')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddOauthFieldsToUsers (20140823154438)
+  [1m[36m (170.9ms)[0m  [1mALTER TABLE `users` ADD `provider` varchar(255)[0m
+  [1m[35m (169.0ms)[0m  ALTER TABLE `users` ADD `uid` varchar(255)
+  [1m[36m (198.6ms)[0m  [1mALTER TABLE `users` ADD `name` varchar(255)[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140823154438')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to RenameDescriptionFieldInSpells (20140823162009)
+  [1m[36m (210.1ms)[0m  [1mALTER TABLE `spells` CHANGE `desrciption` `description` varchar(255) DEFAULT NULL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140823162009')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateBattles (20140823183132)
+  [1m[36m (159.5ms)[0m  [1mCREATE TABLE `battles` (`id` int(11) auto_increment PRIMARY KEY, `workflow_state` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140823183132')[0m
+  [1m[35m (0.9ms)[0m  COMMIT
+Migrating to AddChallengerIdAndChallengeeIdToBattles (20140823185702)
+  [1m[36m (163.3ms)[0m  [1mALTER TABLE `battles` ADD `challenger_id` int(11)[0m
+  [1m[35m (430.4ms)[0m  ALTER TABLE `battles` ADD `challengee_id` int(11)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823185702')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateWeapons (20140823204400)
+  [1m[35m (363.8ms)[0m  CREATE TABLE `weapons` (`id` int(11) auto_increment PRIMARY KEY, `spell_id` int(11), `battle_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823204400')
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to AddAnotherFieldSomewhereCool (20140823210527)
+  [1m[35m (191.0ms)[0m  ALTER TABLE `weapons` ADD `user_id` int(11)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823210527')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'Silences something immediately', 'Silencio', '2014-08-23 21:34:02')[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'Used to repair broken or damaged objects', 'Reparo', '2014-08-23 21:34:02')
+  [1m[36m (24.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'Conjures an incarnation of the caster', 'Expecto Patronum', '2014-08-23 21:34:02')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'disarms someone', 'Expelliarmus', '2014-08-23 21:34:02')
+  [1m[36m (18.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'Cuts or rips objects.', 'Diffindo', '2014-08-23 21:34:02')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'Inflicts unbearable pain on the recipient', 'Crucio', '2014-08-23 21:34:02')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'Killing curse', 'Avada Kedavra', '2014-08-23 21:34:02')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'stunning spell', 'Stupefy', '2014-08-23 21:34:02')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'makes a victim dance like spider', 'Tarantallegra', '2014-08-23 21:34:02')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'Conjures a serpent from the spell caster’s wand.', 'Serpensortia', '2014-08-23 21:34:02')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'nick@nick.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `email`, `encrypted_password`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'nick@nick.com', '$2a$10$eBvRAB0jTMUgd5Wl6LnCceZybT8kV9xWHgchl9WIh2rMIfY4gmXRS', 'Nick', '2014-08-23 21:34:02')
+  [1m[36m (15.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'jake@jake.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `email`, `encrypted_password`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'jake@jake.com', '$2a$10$QYOLD30qz2KJ.WI1AaTDjeRhg2tV7se/JuvjizMesDnGp/wdQ/ZUC', 'Jake', '2014-08-23 21:34:02')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'kevin@kevin.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `email`, `encrypted_password`, `name`, `updated_at`) VALUES ('2014-08-23 21:34:02', 'kevin@kevin.com', '$2a$10$2Ir9BrPHg8Qpk.ovxiVs5uGEFRTXSkpi/M6Liwg7pAZtJBxLtBppC', 'Kevin', '2014-08-23 21:34:02')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+
+
+Started OPTIONS "/users.json" for 127.0.0.1 at 2014-08-23 17:34:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+
+Started POST "/users.json" for 127.0.0.1 at 2014-08-23 17:34:43 -0400
+Processing by Devise::RegistrationsController#create as JSON
+  Parameters: {"login_info"=>{"username"=>"kevin@kevin.com", "password"=>"[FILTERED]"}, "registration"=>{"login_info"=>{"username"=>"kevin@kevin.com", "password"=>"[FILTERED]"}}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 406 Not Acceptable in 219ms
+
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  actionpack (4.1.1) lib/action_controller/metal/mime_responds.rb:440:in `retrieve_collector_from_mimes'
+  actionpack (4.1.1) lib/action_controller/metal/mime_responds.rb:396:in `respond_with'
+  devise (3.2.4) app/controllers/devise/registrations_controller.rb:28:in `create'
+  actionpack (4.1.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.1) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:149:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:149:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.1) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.1) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.1) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/mapper.rb:45:in `call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  rack-cors (0.2.9) lib/rack/cors.rb:54:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+=======
 
 
 Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:42:06 -0400
@@ -8131,6 +8336,7 @@ Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:42:06 -0400
 
 ActionController::RoutingError (No route matches [GET] "/users.json"):
   actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+>>>>>>> 71bbb12ac4176fe7d407e28daf7d5e1f2c863b24
   actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
   railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
   railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
@@ -8151,6 +8357,210 @@ ActionController::RoutingError (No route matches [GET] "/users.json"):
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kevin/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/kevin/.rvm/gems/ruby-2.1.2@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.9ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:36:09 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.4ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (53.4ms)
+Completed 200 OK in 67ms (Views: 28.4ms | ActiveRecord: 33.5ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:36:09 -0400
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.json.rabl (12.8ms)
+Completed 200 OK in 23ms (Views: 22.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:40:21 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.4ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (11.5ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:40:21 -0400
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.json.rabl (5.7ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:40:23 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.3ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (9.5ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:40:37 -0400
+Processing by SpellsController#index as JSON
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT `spells`.* FROM `spells`[0m
+  Rendered spells/index.json.rabl (17.5ms)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:40:39 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.4ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (15.5ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:41:11 -0400
+Processing by SpellsController#index as JSON
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT `spells`.* FROM `spells`[0m
+  Rendered spells/index.json.rabl (17.7ms)
+Completed 200 OK in 23ms (Views: 22.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:41:11 -0400
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.json.rabl (7.2ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:42:26 -0400
+Processing by SpellsController#index as JSON
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT `spells`.* FROM `spells`[0m
+  Rendered spells/index.json.rabl (12.4ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:42:26 -0400
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.json.rabl (6.3ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:43:55 -0400
+Processing by SpellsController#index as JSON
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT `spells`.* FROM `spells`[0m
+  Rendered spells/index.json.rabl (12.5ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:44:12 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.4ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (17.6ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:44:19 -0400
+Processing by SpellsController#index as JSON
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT `spells`.* FROM `spells`[0m
+  Rendered spells/index.json.rabl (13.4ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spells" for 127.0.0.1 at 2014-08-23 17:45:52 -0400
+Processing by SpellsController#index as HTML
+  Rendered spells/index.html.haml within layouts/application (1.2ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered layouts/_navbar.html.haml (25.4ms)
+Completed 200 OK in 768ms (Views: 766.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spells" for 127.0.0.1 at 2014-08-23 17:45:53 -0400
+Processing by SpellsController#index as HTML
+  Rendered spells/index.html.haml within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.haml (5.4ms)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favorite_lists" for 127.0.0.1 at 2014-08-23 17:45:56 -0400
+Processing by FavoriteListsController#index as HTML
+  [1m[36mFavoriteList Load (0.3ms)[0m  [1mSELECT `favorite_lists`.* FROM `favorite_lists`[0m
+  Rendered favorite_lists/index.html.haml within layouts/application (2.9ms)
+  Rendered layouts/_navbar.html.haml (0.6ms)
+Completed 200 OK in 49ms (Views: 25.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/favorite_lists/new" for 127.0.0.1 at 2014-08-23 17:45:58 -0400
+Processing by FavoriteListsController#new as HTML
+  [1m[35mSpell Load (0.3ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered favorite_lists/_form.html.haml (93.6ms)
+  Rendered favorite_lists/new.html.haml within layouts/application (103.9ms)
+  Rendered layouts/_navbar.html.haml (0.6ms)
+Completed 200 OK in 168ms (Views: 158.6ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/favorite_lists" for 127.0.0.1 at 2014-08-23 17:46:05 -0400
+Processing by FavoriteListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9VBnddo2n8b31MTSR/KucLGhYeseTdZdu/n746QqR88=", "favorite_list"=>{"name"=>"this is a list", "spell_ids"=>["6", "7"]}, "commit"=>"Create Favorite list"}
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT `spells`.* FROM `spells`  WHERE `spells`.`id` IN (6, 7)[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `favorite_lists` (`created_at`, `name`, `updated_at`) VALUES ('2014-08-23 21:46:05', 'this is a list', '2014-08-23 21:46:05')[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `favorites` (`created_at`, `favorite_list_id`, `spell_id`, `updated_at`) VALUES ('2014-08-23 21:46:05', 1, 6, '2014-08-23 21:46:05')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `favorites` (`created_at`, `favorite_list_id`, `spell_id`, `updated_at`) VALUES ('2014-08-23 21:46:05', 1, 7, '2014-08-23 21:46:05')[0m
+  [1m[35m (29.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/favorite_lists
+Completed 302 Found in 143ms (ActiveRecord: 63.6ms)
+
+
+Started GET "/favorite_lists" for 127.0.0.1 at 2014-08-23 17:46:05 -0400
+Processing by FavoriteListsController#index as HTML
+  [1m[36mFavoriteList Load (0.4ms)[0m  [1mSELECT `favorite_lists`.* FROM `favorite_lists`[0m
+  Rendered favorite_lists/index.html.haml within layouts/application (2.9ms)
+  Rendered layouts/_navbar.html.haml (0.7ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:47:00 -0400
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.json.rabl (7.2ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:47:00 -0400
+Processing by SpellsController#index as JSON
+  [1m[36mSpell Load (0.3ms)[0m  [1mSELECT `spells`.* FROM `spells`[0m
+  Rendered spells/index.json.rabl (15.9ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:47:48 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.5ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (25.4ms)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:47:48 -0400
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.json.rabl (5.9ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:48:12 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.3ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (20.7ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 17:48:12 -0400
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.json.rabl (7.3ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.5ms)
+=======
   /usr/local/rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
   /usr/local/rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
   /usr/local/rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
@@ -8294,3 +8704,6 @@ Unpermitted parameters: challenger_spells, challengee_spells
   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m
   Rendered battles/create.json.rabl (4.4ms)
 Completed 200 OK in 25ms (Views: 6.6ms | ActiveRecord: 5.9ms)
+>>>>>>> 71bbb12ac4176fe7d407e28daf7d5e1f2c863b24
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
