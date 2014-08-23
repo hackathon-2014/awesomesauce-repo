@@ -16,10 +16,22 @@ angular.module('Frontend.controllers', [])
     // $scope.modal.show();
     if(!($scope.isLoggedIn())){
       console.log('logged in is false')
-      // $scope.login()
+      $scope.login()
     }
   });
 
+  var challengeInt = setInterval(function(){
+    console.log("timeout fired")
+    // $http.get('http://localhost:3000/detect_challenge').success(function(resp){
+    //   if(resp.challenge){
+    //     // need challenger.id
+    //     console.log('challenge detected')
+    //     // $location.path('/tab/challenge/id/choose-spells')
+    //     clearInterval(challengeInt)
+
+    //   }
+    // })
+  }, 1000)
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
@@ -43,7 +55,7 @@ angular.module('Frontend.controllers', [])
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
-    $http.post('http://localhost:3000/users', {login_info: $scope.loginData}).success(function(resp){
+    $http.post('http://localhost:3000/users.json', {login_info: $scope.loginData}).success(function(resp){
       console.log("user logged in, resp:", resp)
       $scope.closeLogin();
       
@@ -122,12 +134,12 @@ angular.module('Frontend.controllers', [])
     console.log("challenge data sent")
     var newBattle = {battle:{
       challenger_id: Battle.data.challenger.id,
-      challenger_spells: $scope.spellsChosen,
-      challengee_id: Battle.data.challengee.id,
-      challengee_spells: []
+      challengee_id: Battle.data.challengee.id
     }}
     $http.post('http://localhost:3000/battles.json',newBattle).success(function(data, status, headers, config){
       Battle.data = data;
+      Battle.data.challengee.spellsChosen = []
+      Battle.data.challenger.spellsChosen = []
       $location.url("/tab/challenge/" + challengerId + "/battle")
     })
   }
