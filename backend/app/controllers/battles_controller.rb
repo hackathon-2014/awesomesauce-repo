@@ -3,7 +3,8 @@ class BattlesController < ApplicationController
   before_filter :find_battle, only:[:show,
     :edit,
     :update,
-    :destroy]
+    :destroy,
+    :update_battle]
 
   def index
     @battles = Battle.all
@@ -41,6 +42,21 @@ class BattlesController < ApplicationController
     unless @battle
       render nothing: true
     end
+  end
+
+  def update_battle
+    @challenger_spells = @battle.weapons.map(&:spell)
+    @challengee_spells = []
+    params[:challengee_spells].each do |spell|
+      # p spell
+      
+      @weapon = @battle.weapons.create(
+        spell_id: spell[:id],
+        user_id: params[:battle][:challengee_id]
+      )
+      @challengee_spells << @weapon.spell
+    end
+
   end
 
   private

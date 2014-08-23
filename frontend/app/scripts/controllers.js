@@ -44,7 +44,7 @@ angular.module('Frontend.controllers', [])
   }
 
   $scope.challengeeChallenge = function() {
-    $location.url("/tab/challengee/" + Battle.data.id + "/choose-spells")
+    $location.url("/tab/challengee/" + Battle.data.id + "/choose-challengee-spells")
   }
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
@@ -171,6 +171,7 @@ angular.module('Frontend.controllers', [])
   $scope.limit = 4;
   $scope.checked = 0;
   $scope.spellsChosen = []
+  $scope.battleId = $stateParams.battleId;
   $scope.toggleSelection = function(spell){
     var idx = $scope.spellsChosen.indexOf(spell);
     if(idx > -1) {
@@ -187,19 +188,15 @@ angular.module('Frontend.controllers', [])
     return $scope.spellsChosen.length > 3;
   }
 
-  $scope.sendChallenge = function(challengerId){
+  $scope.updateChallengeeChallenge = function(challengeId){
     console.log("challenge data sent")
-    var newBattle = {battle:{
-      challenger_id: Battle.data.challenger.id,
-      challenger_spells: $scope.spellsChosen,
-      challengee_id: Battle.data.challengee.id,
-      challengee_spells: []
-    }}
-    $http.post('http://localhost:3000/battles.json',newBattle).success(function(data, status, headers, config){
+    var newBattle = {
+      challengee_id: $rootScope.loginInfo.id,
+      challengee_spells: $scope.spellsChosen
+    }
+    $http.put("http://localhost:3000/battles/" + $scope.battleId +"/update_battle.json",newBattle).success(function(data, status, headers, config){
       Battle.data = data;
-      Battle.data.challengee.spellsChosen = []
-      Battle.data.challenger.spellsChosen = []
-      $location.url("/tab/challenge/" + challengerId + "/battle")
+      $location.url("/tab/challengee/" + $scope.battleId + "/battle")
     })
   }
 })
