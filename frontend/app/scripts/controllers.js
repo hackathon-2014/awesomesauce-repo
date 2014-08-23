@@ -1,23 +1,26 @@
 'use strict';
 angular.module('Frontend.controllers', [])
 
-.controller('DashCtrl', function($http, $scope, $location, Spells, $ionicModal, $timeout) {
+.controller('DashCtrl', function($rootScope, $http, $scope, $location, Spells, $ionicModal, $timeout) {
   console.log("DashCtrl called")
   //Form data for the login modal
   // console.log("dialogs", $cordovaDialogs)
   // $cordovaDialogs.beep(2)
   $scope.loginData = {};
 
-  $scope.isLoggedIn = false
+  $rootScope.isLoggedIn = false
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
     // $scope.modal.show();
-    if(!($scope.isLoggedIn)){
+    if($rootScope.isLoggedIn){
+      console.log('logged in')
+    } else {
       console.log('logged in is false')
       $scope.login()
+
     }
   });
 
@@ -49,7 +52,6 @@ angular.module('Frontend.controllers', [])
 
 
 
-
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
@@ -57,6 +59,7 @@ angular.module('Frontend.controllers', [])
       console.log("user logged in, resp:", resp)
       $scope.closeLogin();
       $scope.isLoggedIn = true
+      $rootScope.loginInfo = resp
       
     })
     
@@ -104,10 +107,10 @@ angular.module('Frontend.controllers', [])
   }
 })
 
-.controller('ChooseSpellsCtrl', function($http, $location, $scope, $stateParams, Challengers, Spells, Battle) {
+.controller('ChooseSpellsCtrl', function($rootScope, $http, $location, $scope, $stateParams, Challengers, Spells, Battle) {
   console.log("ChooseSpellsCtrl called")
   Spells.initSpells()
-
+  console.log('coool:', $rootScope.idstuff)
   $scope.challenger = Challengers.getChallenger($stateParams.challengerId)
   $scope.spells = Spells.data;
   $scope.limit = 4;
