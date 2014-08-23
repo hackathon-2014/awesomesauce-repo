@@ -76,4 +76,38 @@ angular.module('Frontend.services', [])
     },
     
   };
+})
+
+.factory('Battle', function() {
+  // Might use a resource here that returns a JSON array
+  console.log("Challenge service hit")
+  // Some fake testing data
+  var challengers = [
+    { id: 0, name: 'bobcat'},
+    { id: 1, name: 'nick'},
+    { id: 2, name: 'kevin'},
+
+  ];
+
+  var spells = [
+    { id: 0, name: 'expelliarmus' },
+    { id: 1, name: 'leviticus' },
+    { id: 2, name: 'america' },
+    { id: 3, name: 'rock climbing' }
+  ];
+
+  var spellsChosen = []
+
+  return {
+    allChallengers: function() {
+      return challengers;
+    },
+    getChallenger: function(challengerId){
+      return challengers[challengerId];
+    },
+    allSpells: function(){
+      return spells;
+    },
+    
+  };
 });
