@@ -55,9 +55,22 @@ angular.module('Frontend.services', [])
 
   ];
 
+  var spells = [
+    { id: 0, name: 'expelliarmus' },
+    { id: 1, name: 'leviticus' },
+    { id: 2, name: 'america' },
+    { id: 3, name: 'rock climbing' }
+  ];
+
   return {
     allChallengers: function() {
       return challengers;
+    },
+    getChallenger: function(challengerId){
+      return challengers[challengerId];
+    },
+    allSpells: function(){
+      return spells;
     }
   };
 });

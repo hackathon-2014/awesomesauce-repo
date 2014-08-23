@@ -23,4 +23,10 @@ angular.module('Frontend.controllers', [])
 .controller('ChallengeCtrl', function($scope, Challenge) {
   console.log("ChallengersCtrl called")
   $scope.challengers = Challenge.allChallengers()
+})
+
+.controller('ChooseSpellsCtrl', function($scope, $stateParams, Challenge) {
+  console.log("ChooseSpellsCtrl called")
+  $scope.challenger = Challenge.getChallenger($stateParams.challengerId)
+  $scope.spells = Challenge.allSpells();
 });
