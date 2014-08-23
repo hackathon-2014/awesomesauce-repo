@@ -13,6 +13,27 @@
 
 ActiveRecord::Schema.define(version: 20140823143008) do
 
+  create_table "favorite_lists", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "favorites", force: true do |t|
+    t.integer  "favorite_list_id"
+    t.integer  "spell_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spells", force: true do |t|
+    t.string   "name"
+    t.string   "desrciption"
+    t.integer  "damage_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
