@@ -1,35 +1,32 @@
 'use strict';
 angular.module('Frontend.services', [])
 
-/**
- * A simple example service that returns some data.
- */
-.factory('Spells', function($http) {
-  // Might use a resource here that returns a JSON array
+.factory('Spells', [ '$http', function($http) {
   console.log("spells service hit")
-  // Some fake testing data
-  var spells = [
-    { id: 0, name: 'expelliarmus' },
-    { id: 1, name: 'leviticus' },
-    { id: 2, name: 'america' },
-    { id: 3, name: 'rock climbing' }
-  ];
+  var  Spells = {
+    data: {
+      spells: [
+        { id: 0, name: 'expelliarmus' }
+      ]
 
-  return {
-    all: function() {
-      return spells;
-    },
-    get: function(spellId) {
-      // Simple index lookup
-      return spells[spellId];
-    },
-    initSpells: function() {
-      $http.get('/spells.json').success( function(data){
-        Spells.spells = data
-      });
     }
   };
-})
+
+  Spells.all = function() {
+    return Spells.data.spells;
+  },
+  Spells.get = function(spellId) {
+    return Spells.data.spells[spellId];
+  },
+  Spells.initSpells = function() {
+    $http.get('http://localhost:3000/spells.json').success( function(data){
+      Spells.data.spells = data
+    });
+    return true;
+  }
+  return Spells;
+  }
+])
 
 .factory('Stats', function() {
   // Might use a resource here that returns a JSON array
@@ -50,6 +47,40 @@ angular.module('Frontend.services', [])
 })
 
 .factory('Challenge', function() {
+  // Might use a resource here that returns a JSON array
+  console.log("Challenge service hit")
+  // Some fake testing data
+  var challengers = [
+    { id: 0, name: 'bobcat'},
+    { id: 1, name: 'nick'},
+    { id: 2, name: 'kevin'},
+
+  ];
+
+  var spells = [
+    { id: 0, name: 'expelliarmus' },
+    { id: 1, name: 'leviticus' },
+    { id: 2, name: 'america' },
+    { id: 3, name: 'rock climbing' }
+  ];
+
+  var spellsChosen = []
+
+  return {
+    allChallengers: function() {
+      return challengers;
+    },
+    getChallenger: function(challengerId){
+      return challengers[challengerId];
+    },
+    allSpells: function(){
+      return spells;
+    },
+    
+  };
+})
+
+.factory('Battle', function() {
   // Might use a resource here that returns a JSON array
   console.log("Challenge service hit")
   // Some fake testing data

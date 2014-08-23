@@ -1,13 +1,15 @@
 'use strict';
 angular.module('Frontend.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, Spells) {
   console.log("DashCtrl called")
+  
 })
 
 .controller('SpellsCtrl', function($scope, Spells) {
   console.log("SpellsCtrl called")
-  $scope.spells = Spells.all();
+  $scope.spells = Spells.data;
+  Spells.initSpells();
 })
 
 .controller('SpellsDetailCtrl', function($scope, $stateParams, Spells) {
@@ -31,17 +33,17 @@ angular.module('Frontend.controllers', [])
   console.log("ChooseSpellsCtrl called")
   $scope.challenger = Challenge.getChallenger($stateParams.challengerId)
   $scope.spells = Challenge.allSpells();
-  $scope.spellsChosen = []
-  $scope.chooseSpell = function(spellId) {
-    if($scope.spellsChosen.length <= 2) {
-      var chosenSpell = _.flatten(_.filter($scope.spells, function(spell){
-      return spell.id == spellId}))
-      console.log("spell:", chosenSpell[0])
-      $scope.spellsChosen.push(chosenSpell[0])
-      console.log('spellschosen', $scope.spellsChosen)
-    } else {
-      console.log("three spells chosen")
-    }
-    
+  $scope.limit = 4;
+  $scope.checked = 0;
+  $scope.checkChanged = function(item){
+    if(item.winner) $scope.checked++;
+    else $scope.checked--;
   }
+})
+
+.controller('BattleCtrl', function($scope, Battle) {
+  console.log("ChallengersCtrl called")
+  // $scope.spells = Challenge.allSpells();
+  // $scope.challengers = Challenge.allChallengers()
+  
 });
