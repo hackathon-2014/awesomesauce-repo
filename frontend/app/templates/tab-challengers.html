@@ -2,7 +2,7 @@
   <ion-content class="has-header padding">
     <h1>Challenge screen</h1>
     <ion-list>
-      <ion-item class="item-icon-right" ng-repeat="challenger in challengers.challengers" type="item-text-wrap" href="#/tab/challenge/{{challenger.id}}/choose-spells">
+      <ion-item class="item-icon-right" ng-repeat="challenger in challengers.challengers" type="item-text-wrap" ng-click="sendChallengee(challenger.id)" href="#/tab/challenge/{{challenger.id}}/choose-spells">
         {{challenger.name || challenger.email}}
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
