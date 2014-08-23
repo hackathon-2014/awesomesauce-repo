@@ -9245,3 +9245,167 @@ Processing by BattlesController#detect_challenge as JSON
   [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
   Rendered battles/detect_challenge.json.rabl (3.5ms)
 Completed 200 OK in 16ms (Views: 12.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/create_user.json" for 127.0.0.1 at 2014-08-23 18:37:09 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"login_info"=>{"email"=>"nick@nick.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'nick@nick.com' LIMIT 1[0m
+  Rendered users/create.json.rabl (0.5ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:37:10 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mBattle Load (0.4ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (5.5ms)
+Completed 200 OK in 14ms (Views: 8.0ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/create_user.json" for 127.0.0.1 at 2014-08-23 18:39:29 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"login_info"=>{"email"=>"nick@nick.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'nick@nick.com' LIMIT 1
+  Rendered users/create.json.rabl (0.7ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:39:30 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mBattle Load (0.2ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (2.1ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:39:31 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mBattle Load (0.6ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (2.8ms)
+Completed 200 OK in 11ms (Views: 6.5ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:39:32 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mBattle Load (0.5ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (5.6ms)
+Completed 200 OK in 14ms (Views: 8.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:39:33 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mBattle Load (0.2ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (2.3ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:39:34 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mBattle Load (2.0ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (5.4ms)
+Completed 200 OK in 19ms (Views: 11.9ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:39:35 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mBattle Load (0.5ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (2.3ms)
+Completed 200 OK in 9ms (Views: 4.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:39:36 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mBattle Load (0.5ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (2.7ms)
+Completed 200 OK in 10ms (Views: 5.2ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:39:37 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mBattle Load (0.5ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (5.1ms)
+Completed 200 OK in 13ms (Views: 8.2ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:39:38 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mBattle Load (1.6ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (5.1ms)
+Completed 200 OK in 17ms (Views: 9.1ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/create_user.json" for 127.0.0.1 at 2014-08-23 18:39:46 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"login_info"=>{"email"=>"nick@nick.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'nick@nick.com' LIMIT 1[0m
+  Rendered users/create.json.rabl (0.4ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:39:47 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>1, "battle"=>{}}
+  [1m[35mUser Load (1.9ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mBattle Load (0.8ms)[0m  [1mSELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 1  ORDER BY `battles`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered battles/detect_challenge.json.rabl (2.7ms)
+Completed 200 OK in 14ms (Views: 7.2ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/create_user.json" for 127.0.0.1 at 2014-08-23 18:40:18 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"login_info"=>{"email"=>"jake@jake.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'jake@jake.com' LIMIT 1
+  Rendered users/create.json.rabl (0.7ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/battles/detect_challenge.json" for 127.0.0.1 at 2014-08-23 18:40:19 -0400
+Processing by BattlesController#detect_challenge as JSON
+  Parameters: {"user_id"=>2, "battle"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mBattle Load (0.6ms)[0m  SELECT  `battles`.* FROM `battles`  WHERE `battles`.`workflow_state` = 'challenged' AND `battles`.`challengee_id` = 2  ORDER BY `battles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1
+  Rendered battles/detect_challenge.json.rabl (2.4ms)
+Completed 200 OK in 10ms (Views: 5.1ms | ActiveRecord: 1.7ms)

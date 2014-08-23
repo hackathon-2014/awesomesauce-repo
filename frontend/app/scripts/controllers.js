@@ -1,7 +1,7 @@
 'use strict';
 angular.module('Frontend.controllers', [])
 
-.controller('DashCtrl', function($rootScope, $http, $scope, $location, Spells, $ionicModal, $timeout) {
+.controller('DashCtrl', function($rootScope, $http, $scope, $location, Spells, $ionicModal, $timeout, Battle) {
   console.log("DashCtrl called, rootScope is", $rootScope)
   //Form data for the login modal
   // console.log("dialogs", $cordovaDialogs)
@@ -32,7 +32,7 @@ angular.module('Frontend.controllers', [])
         console.log(resp)
         if(resp){
           // need challenger.id
-          console.log('challenge detected')
+          Battle.data = resp
           $scope.challenged = true; 
           // $location.path('/tab/challenge/id/choose-spells')
           clearInterval(challengeInt)
@@ -41,6 +41,10 @@ angular.module('Frontend.controllers', [])
       })
     }, 1000)
     
+  }
+
+  $scope.challengeeChallenge = function() {
+    $location.url("/tab/challengee/" + Battle.data.id + "/choose-spells")
   }
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
