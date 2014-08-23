@@ -44,9 +44,9 @@ angular.module('Frontend.services', [])
   };
 })
 
-.factory('Challengers', function() {
+.factory('Challenge', function() {
   // Might use a resource here that returns a JSON array
-  console.log("Challengers service hit")
+  console.log("Challenge service hit")
   // Some fake testing data
   var challengers = [
     { id: 0, name: 'bobcat'},
@@ -56,7 +56,7 @@ angular.module('Frontend.services', [])
   ];
 
   return {
-    all: function() {
+    allChallengers: function() {
       return challengers;
     }
   };

@@ -20,7 +20,7 @@ angular.module('Frontend.controllers', [])
   console.log("StatsCtrl called")
 })
 
-.controller('ChallengersCtrl', function($scope, Challengers) {
+.controller('ChallengeCtrl', function($scope, Challenge) {
   console.log("ChallengersCtrl called")
-  $scope.challengers = Challengers.all()
+  $scope.challengers = Challenge.allChallengers()
 });

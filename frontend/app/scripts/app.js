@@ -78,12 +78,12 @@ angular.module('Frontend', ['ionic', 'config', 'Frontend.controllers', 'Frontend
       }
     })
 
-    .state('tab.challengers', {
-      url: '/challengers',
+    .state('tab.challenge', {
+      url: '/challenge',
       views: {
         'tab-dash': {
           templateUrl: 'templates/tab-challengers.html',
-          controller: 'ChallengersCtrl'
+          controller: 'ChallengeCtrl'
         }
       }
     });
