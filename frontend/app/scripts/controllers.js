@@ -1,9 +1,11 @@
 'use strict';
 angular.module('Frontend.controllers', [])
 
-.controller('DashCtrl', function($scope, Spells, $ionicModal, $timeout) {
+.controller('DashCtrl', function($scope, Spells, $ionicModal, $timeout, $cordovaDialogs) {
   console.log("DashCtrl called")
   //Form data for the login modal
+  // console.log("dialogs", $cordovaDialogs)
+  // $cordovaDialogs.beep(2)
   $scope.loginData = {};
 
   // Create the login modal that we will use later
