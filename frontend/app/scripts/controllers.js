@@ -11,7 +11,7 @@ angular.module('Frontend.controllers', [])
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
-    $scope.modal.show();
+    // $scope.modal.show();
   });
 
   // Triggered in the login modal to close it
