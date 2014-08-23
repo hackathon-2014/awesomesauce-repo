@@ -4,7 +4,7 @@ angular.module('Frontend.services', [])
 /**
  * A simple example service that returns some data.
  */
-.factory('Spells', function() {
+.factory('Spells', function($http) {
   // Might use a resource here that returns a JSON array
   console.log("spells service hit")
   // Some fake testing data
@@ -22,6 +22,11 @@ angular.module('Frontend.services', [])
     get: function(spellId) {
       // Simple index lookup
       return spells[spellId];
+    },
+    initSpells: function() {
+      $http.get('/spells.json').success( function(data){
+        Spells.spells = data
+      });
     }
   };
 })
