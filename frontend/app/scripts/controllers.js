@@ -53,15 +53,24 @@ angular.module('Frontend.controllers', [])
   console.log("StatsCtrl called")
 })
 
-.controller('ChallengeCtrl', function($scope, Challengers, Spells) {
+.controller('ChallengeCtrl', function($scope, Challengers, Spells, $http) {
   console.log("ChallengersCtrl called")
   $scope.spells = Spells.data;
-  console.log($scope.challengers)
   $scope.challengers = Challengers.data;
+  console.log($scope.challengers)
   Spells.initSpells()
   Challengers.initChallengers()
-  // Challengers.initChallengers()
-  
+  $scope.sendChallengee = function(challengee){
+    console.log("challenge sent!!!!!!!!!!!")
+    var challenge = {
+      challenger_id: 1,
+      challengee_id: 2
+    }
+    $http.post('http://localhost:3000/challenge.json', {challenge: challenge}).success(function(data, status, headers, config){
+      console.log("successfully sent user data")
+    })
+
+  }
 })
 
 .controller('ChooseSpellsCtrl', function($scope, $stateParams, Challengers, Spells) {

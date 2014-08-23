@@ -51,7 +51,8 @@ angular.module('Frontend.services', [])
   var  Challengers = {
     data: {
       challengers: [
-        { id: 0, name: 'bobcat'}
+        { id: 0, name: 'bobcat'},
+        { id: 1, name: 'jake'}
       ]
 
     }
