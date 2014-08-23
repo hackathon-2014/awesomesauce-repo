@@ -1,7 +1,7 @@
 <ion-view title="Spells">
   <ion-content class="has-header">
     <ion-list>
-      <ion-item class="item-icon-right" ng-repeat="spell in spells" type="item-text-wrap" href="#/tab/spells/{{spell.id}}">
+      <ion-item class="item-icon-right" ng-repeat="spell in spells.spells" type="item-text-wrap" href="#/tab/spells/{{spell.id}}">
         {{spell.name}}
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
