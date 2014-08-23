@@ -4953,3 +4953,78 @@ Migrating to RenameDescriptionFieldInSpells (20140823162009)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823162009')
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddFieldsToUsers (20140823164355)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to RenameDescriptionFieldInSpells (20140823162009)
+  [1m[36m (93.3ms)[0m  [1mALTER TABLE `spells` CHANGE `description` `desrciption` varchar(255) DEFAULT NULL[0m
+  [1m[35mSQL (27.6ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140823162009'
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to RenameDescriptionFieldInSpells (20140823162009)
+  [1m[35m (93.2ms)[0m  ALTER TABLE `spells` CHANGE `desrciption` `description` varchar(255) DEFAULT NULL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823162009')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddFieldsToUsers (20140823164355)
+  [1m[35m (0.4ms)[0m  ALTER TABLE `users` ADD `name` varchar(255)
+Mysql2::Error: Duplicate column name 'name': ALTER TABLE `users` ADD `name` varchar(255)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to RenameDescriptionFieldInSpells (20140823162009)
+  [1m[36m (130.2ms)[0m  [1mALTER TABLE `spells` CHANGE `description` `desrciption` varchar(255) DEFAULT NULL[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140823162009'
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to AddOauthFieldsToUsers (20140823154438)
+  [1m[36m (128.7ms)[0m  [1mALTER TABLE `users` DROP `name`[0m
+  [1m[35m (274.6ms)[0m  ALTER TABLE `users` DROP `uid`
+  [1m[36m (234.4ms)[0m  [1mALTER TABLE `users` DROP `provider`[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140823154438'
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddOauthFieldsToUsers (20140823154438)
+  [1m[35m (140.8ms)[0m  ALTER TABLE `users` ADD `provider` varchar(255)
+  [1m[36m (192.4ms)[0m  [1mALTER TABLE `users` ADD `uid` varchar(255)[0m
+  [1m[35m (188.9ms)[0m  ALTER TABLE `users` ADD `name` varchar(255)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823154438')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to RenameDescriptionFieldInSpells (20140823162009)
+  [1m[35m (181.9ms)[0m  ALTER TABLE `spells` CHANGE `desrciption` `description` varchar(255) DEFAULT NULL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823162009')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddFieldsToUsers (20140823164355)
+  [1m[35m (0.4ms)[0m  ALTER TABLE `users` ADD `name` varchar(255)
+Mysql2::Error: Duplicate column name 'name': ALTER TABLE `users` ADD `name` varchar(255)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to RenameDescriptionFieldInSpells (20140823162009)
+  [1m[36m (80.7ms)[0m  [1mALTER TABLE `spells` CHANGE `description` `desrciption` varchar(255) DEFAULT NULL[0m
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140823162009'
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to AddOauthFieldsToUsers (20140823154438)
+  [1m[36m (175.5ms)[0m  [1mALTER TABLE `users` DROP `name`[0m
+  [1m[35m (244.4ms)[0m  ALTER TABLE `users` DROP `uid`
+  [1m[36m (303.3ms)[0m  [1mALTER TABLE `users` DROP `provider`[0m
+  [1m[35mSQL (0.8ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140823154438'
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddOauthFieldsToUsers (20140823154438)
+  [1m[35m (159.0ms)[0m  ALTER TABLE `users` ADD `provider` varchar(255)
+  [1m[36m (229.3ms)[0m  [1mALTER TABLE `users` ADD `uid` varchar(255)[0m
+  [1m[35m (189.8ms)[0m  ALTER TABLE `users` ADD `name` varchar(255)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823154438')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to RenameDescriptionFieldInSpells (20140823162009)
+  [1m[35m (171.3ms)[0m  ALTER TABLE `spells` CHANGE `desrciption` `description` varchar(255) DEFAULT NULL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823162009')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
