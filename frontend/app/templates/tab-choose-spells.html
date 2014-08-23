@@ -2,7 +2,7 @@
   <ion-content class="has-header padding">
     <h1 class="title">Choose Spells for your battle against {{challenger.name}}</h1>
     <ion-list>
-    <ion-checkbox class="item-icon-right" ng-repeat="spell in spells.spells" type="item-text-wrap">
+    <ion-checkbox class="item-icon-right" ng-repeat="spell in spells.spells" type="item-text-wrap" ng-change="checkChanged(spell)">
         {{spell.name}}
       </ion-checkbox>
     </ion-list>

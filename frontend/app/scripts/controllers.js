@@ -91,9 +91,12 @@ angular.module('Frontend.controllers', [])
   $scope.spells = Spells.data;
   $scope.limit = 4;
   $scope.checked = 0;
-  $scope.checkChanged = function(item){
-    if(item.winner) $scope.checked++;
-    else $scope.checked--;
+  $scope.spellsChosen = []
+  $scope.checkChanged = function(spell){
+    console.log(spell)
+    console.log($scope.spellsChosen)
+    // if(item.winner) $scope.checked++;
+    // else $scope.checked--;
   }
 
   $scope.sendChallenge = function(challengerId){
