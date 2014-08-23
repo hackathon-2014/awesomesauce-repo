@@ -17,7 +17,14 @@ Rails.application.routes.draw do
   resources :users do
   end
 
-  resources :battles
+  resources :battles do
+    member do
+      get :challenged
+      get :playing
+      get :finished
+    end
+  end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
