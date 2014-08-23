@@ -8704,6 +8704,16 @@ Unpermitted parameters: challenger_spells, challengee_spells
   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m
   Rendered battles/create.json.rabl (4.4ms)
 Completed 200 OK in 25ms (Views: 6.6ms | ActiveRecord: 5.9ms)
+<<<<<<< HEAD
+
+
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 17:49:29 -0400
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.6ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (21.5ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.6ms)
+=======
 >>>>>>> 71bbb12ac4176fe7d407e28daf7d5e1f2c863b24
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+>>>>>>> 8306f962de6041d283a43075f01cc01c5b2e2e2a
