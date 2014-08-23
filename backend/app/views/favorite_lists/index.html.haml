@@ -4,5 +4,4 @@
 
 - @list.each do |list|
   %br
-  =list.name
-  =list.spell
+  = link_to "#{list.name}", favorite_list_path(list)

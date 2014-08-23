@@ -3,7 +3,7 @@
 = simple_form_for @list do |f|
   =f.input :name
   - Spell.all.each do |spell|
-    = check_box_tag 'spell[spell_ids][]', spell.id, false, {id: "spell_id_#{spell.id}", class: "spell_checkbox", spell_id: spell.id}
+    = check_box_tag 'favorite_list[spell_ids][]', spell.id, false, {id: "spell_id_#{spell.id}", class: "spell_checkbox", spell_id: spell.id}
     = label_tag "spell_id_#{spell.id}", spell.name
     %br 
   =f.button :submit, class: 'btn btn-primary'

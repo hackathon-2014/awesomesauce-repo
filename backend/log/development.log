@@ -3098,6 +3098,27 @@ Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.6ms)
 >>>>>>> a1f6fa0c28c17a33524d4775382d8373f0a18ddf
 >>>>>>> f0b6796b6eafb550798e135279c8300cc1e28506
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+<<<<<<< HEAD
+Migrating to CreateIdentities (20140823143605)
+  [1m[35m (347.7ms)[0m  CREATE TABLE `identities` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `provider` varchar(255), `uid` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (167.8ms)[0m  [1mCREATE  INDEX `index_identities_on_user_id`  ON `identities` (`user_id`) [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140823143605')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddOauthFieldsToUsers (20140823154438)
+  [1m[36m (190.9ms)[0m  [1mALTER TABLE `users` ADD `provider` varchar(255)[0m
+  [1m[35m (256.9ms)[0m  ALTER TABLE `users` ADD `uid` varchar(255)
+  [1m[36m (210.9ms)[0m  [1mALTER TABLE `users` ADD `name` varchar(255)[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140823154438')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mFavoriteList Load (0.3ms)[0m  [1mSELECT  `favorite_lists`.* FROM `favorite_lists`   ORDER BY `favorite_lists`.`id` ASC LIMIT 1[0m
+  [1m[35mSpell Load (0.4ms)[0m  SELECT `spells`.* FROM `spells` INNER JOIN `favorites` ON `spells`.`id` = `favorites`.`spell_id` WHERE `favorites`.`favorite_list_id` = 1
+  [1m[36mSpell Load (0.4ms)[0m  [1mSELECT  `spells`.* FROM `spells`   ORDER BY `spells`.`id` ASC LIMIT 1[0m
+  [1m[35mSpell Load (0.3ms)[0m  SELECT  `spells`.* FROM `spells`   ORDER BY `spells`.`id` ASC LIMIT 1
+  [1m[36mFavorite Load (0.3ms)[0m  [1mSELECT `favorites`.* FROM `favorites`  WHERE `favorites`.`spell_id` = 1[0m
+=======
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
 Migrating to RenameDescriptionFieldInSpells (20140823162009)
@@ -4924,3 +4945,11 @@ Processing by SpellsController#index as JSON
   [1m[36mSpell Load (0.4ms)[0m  [1mSELECT `spells`.* FROM `spells`[0m
   Rendered spells/index.json.rabl (25.1ms)
 Completed 200 OK in 29ms (Views: 24.5ms | ActiveRecord: 3.7ms)
+>>>>>>> 7503b9d06318691ec55dd6f0292dd3729b998bd9
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to RenameDescriptionFieldInSpells (20140823162009)
+  [1m[35m (160.4ms)[0m  ALTER TABLE `spells` CHANGE `desrciption` `description` varchar(255) DEFAULT NULL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823162009')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
