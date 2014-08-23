@@ -60,15 +60,14 @@ angular.module('Frontend.controllers', [])
   console.log($scope.challengers)
   Spells.initSpells()
   Challengers.initChallengers()
-  $scope.sendChallengee = function(challengee){
-    console.log("challenge sent!!!!!!!!!!!")
-    var challenge = {
+  $scope.setChallengeData = function(challengee){
+    console.log("challenge set globally")
+    window.challenge = {
+      // change this to reference current user's id
       challenger_id: 1,
       challengee_id: 2
     }
-    $http.post('http://localhost:3000/challenge.json', {challenge: challenge}).success(function(data, status, headers, config){
-      console.log("successfully sent user data")
-    })
+    
 
   }
 })
@@ -84,6 +83,13 @@ angular.module('Frontend.controllers', [])
   $scope.checkChanged = function(item){
     if(item.winner) $scope.checked++;
     else $scope.checked--;
+  }
+
+  $scope.sendChallenge = function(){
+    console.log("challenge data sent")
+    $http.post('http://localhost:3000/challenge.json', {challenge: window.challenge}).success(function(data, status, headers, config){
+      console.log("successfully sent user data")
+    })
   }
 })
 
