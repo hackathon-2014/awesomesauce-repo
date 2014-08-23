@@ -23,6 +23,10 @@ Rails.application.routes.draw do
       get :playing
       get :finished
     end
+
+    collection do
+      get :detect_challenge
+    end
   end
 
 
