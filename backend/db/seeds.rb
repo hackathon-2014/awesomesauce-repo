@@ -66,3 +66,31 @@ Spell.create!(
   description: "Conjures a serpent from the spell caster’s wand.",
   damage_count: ''
   )
+
+User.create!(
+  name: "Nick",
+  email: "Nick@nick.com",
+  password: "password",
+  password_confirmation: "password"
+  )
+
+User.create!(
+  name: "Jake",
+  email: "jake@jake.com",
+  password: "password",
+  password_confirmation: "password"
+  )
+
+User.create!(
+  name: "Kevin",
+  email: "Kevin@kevin.com",
+  password: "password",
+  password_confirmation: "password"
+  )
+
+
+
+
+
+
+
