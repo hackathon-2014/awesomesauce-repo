@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823154438) do
+ActiveRecord::Schema.define(version: 20140823162009) do
 
   create_table "favorite_lists", force: true do |t|
     t.string   "name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20140823154438) do
 
   create_table "spells", force: true do |t|
     t.string   "name"
-    t.string   "desrciption"
+    t.string   "description"
     t.integer  "damage_count"
     t.datetime "created_at"
     t.datetime "updated_at"

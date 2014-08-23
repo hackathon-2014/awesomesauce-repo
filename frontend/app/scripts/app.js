@@ -78,12 +78,32 @@ angular.module('Frontend', ['ionic', 'config', 'Frontend.controllers', 'Frontend
       }
     })
 
-    .state('tab.challengers', {
-      url: '/challengers',
+    .state('tab.challenge', {
+      url: '/challenge',
       views: {
         'tab-dash': {
           templateUrl: 'templates/tab-challengers.html',
-          controller: 'ChallengersCtrl'
+          controller: 'ChallengeCtrl'
+        }
+      }
+    })
+
+    .state('tab.choose-spells', {
+      url: '/challenge/:challengerId/choose-spells',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/tab-choose-spells.html',
+          controller: 'ChooseSpellsCtrl'
+        }
+      }
+    })
+
+    .state('tab.battle', {
+      url: '/challenge/:challengerId/battle',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/tab-battle.html',
+          controller: 'BattleCtrl'
         }
       }
     });

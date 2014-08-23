@@ -1,0 +1,16 @@
+<ion-view title="Dashboard">
+  <ion-content class="has-header padding">
+    <h1>Choose Spells for your battle against {{challenger.name}}</h1>
+    <ion-list>
+    <ion-checkbox class="item-icon-right" ng-repeat="spell in spells" ng-model="spellsChosen" type="item-text-wrap" ng-click="chooseSpell({{spell.id}})">
+        {{spell.name}}
+      </ion-checkbox>
+    </ion-list>
+    <br>
+    <!-- <a href="#/tab/challenge/{{challenger.id}}/battle">
+      <button class="button button-outline button-positive">
+        Send Challenge!
+      </button>
+    </a> -->
+  </ion-content>
+</ion-view>
