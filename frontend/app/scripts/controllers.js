@@ -22,10 +22,14 @@ angular.module('Frontend.controllers', [])
   console.log("StatsCtrl called")
 })
 
-.controller('ChallengeCtrl', function($scope, Challenge) {
+.controller('ChallengeCtrl', function($scope, Challengers, Spells) {
   console.log("ChallengersCtrl called")
-  $scope.spells = Challenge.allSpells();
-  $scope.challengers = Challenge.allChallengers()
+  $scope.spells = Spells.data;
+  console.log($scope.challengers)
+  $scope.challengers = Challengers.data;
+  Spells.initSpells()
+  Challengers.initChallengers()
+  // Challengers.initChallengers()
   
 })
 

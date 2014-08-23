@@ -46,39 +46,31 @@ angular.module('Frontend.services', [])
   };
 })
 
-.factory('Challenge', function() {
-  // Might use a resource here that returns a JSON array
+.factory('Challengers', [ '$http', function($http) {
   console.log("Challenge service hit")
-  // Some fake testing data
-  var challengers = [
-    { id: 0, name: 'bobcat'},
-    { id: 1, name: 'nick'},
-    { id: 2, name: 'kevin'},
+  var  Challengers = {
+    data: {
+      challengers: [
+        { id: 0, name: 'bobcat'}
+      ]
 
-  ];
-
-  var spells = [
-    { id: 0, name: 'expelliarmus' },
-    { id: 1, name: 'leviticus' },
-    { id: 2, name: 'america' },
-    { id: 3, name: 'rock climbing' }
-  ];
-
-  var spellsChosen = []
-
-  return {
-    allChallengers: function() {
-      return challengers;
-    },
-    getChallenger: function(challengerId){
-      return challengers[challengerId];
-    },
-    allSpells: function(){
-      return spells;
-    },
-    
+    }
   };
-})
+  Challengers.allChallengers = function() {
+    return Challengers.data.challengers;
+  },
+  Challengers.getChallenger = function(challengerId){
+    return Challengers.data.challengers[challengerId];
+  },
+  Challengers.initChallengers = function(){
+    $http.get('http://localhost:3000/users.json').success( function(data){
+      Challengers.data.challengers = data
+    });
+    return true;
+  }
+  return Challengers;
+  }
+])
 
 .factory('Battle', function() {
   // Might use a resource here that returns a JSON array
