@@ -16,7 +16,7 @@ angular.module('Frontend.controllers', [])
     // $scope.modal.show();
     if(!($scope.isLoggedIn())){
       console.log('logged in is false')
-      $scope.login()
+      // $scope.login()
     }
   });
 
