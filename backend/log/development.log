@@ -10087,6 +10087,21 @@ Processing by BattlesController#update_battle as JSON
 Completed 200 OK in 49ms (Views: 11.8ms | ActiveRecord: 15.8ms)
 
 
+<<<<<<< HEAD
+Started GET "/spells.json" for 127.0.0.1 at 2014-08-23 19:07:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SpellsController#index as JSON
+  [1m[35mSpell Load (0.4ms)[0m  SELECT `spells`.* FROM `spells`
+  Rendered spells/index.json.rabl (20.2ms)
+Completed 200 OK in 70ms (Views: 25.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2014-08-23 19:07:55 -0400
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.json.rabl (21.2ms)
+Completed 200 OK in 25ms (Views: 21.4ms | ActiveRecord: 3.1ms)
+=======
 Started GET "/" for 127.0.0.1 at 2014-08-23 19:12:59 -0400
 Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.haml within layouts/application (32.5ms)
@@ -10167,6 +10182,7 @@ Processing by BattlesController#get_challenge_data as JSON
   [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m
   Rendered battles/get_challenge_data.json.rabl (20.5ms)
 Completed 200 OK in 57ms (Views: 21.0ms | ActiveRecord: 12.2ms)
+<<<<<<< HEAD
 
 
 Started OPTIONS "/create_user.json" for 127.0.0.1 at 2014-08-23 19:26:05 -0400
@@ -32079,3 +32095,8 @@ ActiveRecord::RecordNotFound (Couldn't find Battle with 'id'=undefined):
   Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
   Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
   Rendered /usr/local/rvm/gems/ruby-2.1.1@harry_potter/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.9ms)
+=======
+>>>>>>> 3bf52e598fe1ac0a8598ea8ca7823fec2d1a1b85
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+>>>>>>> b188b3b3d3a905aec28ffb51463e78f817a7ec22
