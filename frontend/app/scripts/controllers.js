@@ -72,7 +72,7 @@ angular.module('Frontend.controllers', [])
   }
 })
 
-.controller('ChooseSpellsCtrl', function($http, $scope, $stateParams, Challengers, Spells) {
+.controller('ChooseSpellsCtrl', function($http, $scope, $stateParams, Challengers, Spells, Battle) {
   console.log("ChooseSpellsCtrl called")
   Spells.initSpells()
 
@@ -85,17 +85,21 @@ angular.module('Frontend.controllers', [])
     else $scope.checked--;
   }
 
-  $scope.sendChallenge = function(){
+  $scope.sendChallenge = function(challengerId){
     console.log("challenge data sent")
-    $http.post('http://localhost:3000/battle.json', {battle: window.challenge}).success(function(data, status, headers, config){
-      console.log("successfully sent user data")
+    $http.post('http://localhost:3000/battles.json', {battle: window.challenge}).success(function(data, status, headers, config){
+      Battle.data = data;
+      Battle.data.challengee.spellsChosen = []
+      Battle.data.challenger.spellsChosen = []
+      window.location = "#/tab/challenge/" + challengerId + "/battle"
     })
   }
 })
 
 .controller('BattleCtrl', function($scope, Battle) {
   console.log("ChallengersCtrl called")
-  // $scope.spells = Challenge.allSpells();
+  console.log(Battle.data);
+  $scope.battle = Battle.data;
   // $scope.challengers = Challenge.allChallengers()
   
 });

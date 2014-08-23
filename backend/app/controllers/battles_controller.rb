@@ -13,7 +13,7 @@ class BattlesController < ApplicationController
   end
 
   def create
-    @battle = Battle.create params[:battle]
+    @battle = Battle.create battle_params
   end
 
   def update
@@ -28,7 +28,7 @@ class BattlesController < ApplicationController
   private
 
   def battle_params
-    params.require(:battle).permit(:workflow_state)
+    params.require(:battle).permit(:workflow_state, :challengee_id, :challenger_id)
   end  
 
   def find_battle
