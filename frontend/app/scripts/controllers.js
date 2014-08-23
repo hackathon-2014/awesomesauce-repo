@@ -102,16 +102,29 @@ angular.module('Frontend.controllers', [])
   $scope.limit = 4;
   $scope.checked = 0;
   $scope.spellsChosen = []
-  $scope.checkChanged = function(spell){
-    console.log(spell)
-    console.log($scope.spellsChosen)
-    // if(item.winner) $scope.checked++;
-    // else $scope.checked--;
+  $scope.toggleSelection = function(spell){
+    var idx = $scope.spellsChosen.indexOf(spell);
+    if(idx > -1) {
+      $scope.spellsChosen.splice(idx, 1);
+      console.log($scope.spellsChosen)
+    }
+    else {
+      $scope.spellsChosen.push(spell)
+      console.log($scope.spellsChosen)
+    }
+  }
+
+  $scope.maxSelected = function() {
+    return $scope.spellsChosen.length > 3;
   }
 
   $scope.sendChallenge = function(challengerId){
     console.log("challenge data sent")
-    $http.post('http://localhost:3000/battles.json', {battle: window.challenge}).success(function(data, status, headers, config){
+    var newBattle = {battle:{
+      challenger_id: Battle.data.challenger.id,
+      challengee_id: Battle.data.challengee.id
+    }}
+    $http.post('http://localhost:3000/battles.json',newBattle).success(function(data, status, headers, config){
       Battle.data = data;
       Battle.data.challengee.spellsChosen = []
       Battle.data.challenger.spellsChosen = []

@@ -6840,3 +6840,113 @@ Processing by BattlesController#show as JSON
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m
   Rendered battles/show.json.rabl (2.6ms)
 Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.9ms)
+  [1m[36m (205.6ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (234.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DeviseCreateUsers (20140515183500)
+  [1m[35m (208.8ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (202.3ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (288.0ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140515183500')
+  [1m[36m (16.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddConfirmableToUsers (20140823141723)
+  [1m[35m (215.1ms)[0m  ALTER TABLE `users` ADD `confirmation_token` varchar(255)
+  [1m[36m (202.2ms)[0m  [1mALTER TABLE `users` ADD `confirmed_at` datetime[0m
+  [1m[35m (180.8ms)[0m  ALTER TABLE `users` ADD `confirmation_sent_at` datetime
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823141723')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFavoriteLists (20140823142054)
+  [1m[35m (155.7ms)[0m  CREATE TABLE `favorite_lists` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823142054')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSpells (20140823142112)
+  [1m[35m (221.0ms)[0m  CREATE TABLE `spells` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `desrciption` varchar(255), `damage_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823142112')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFavorites (20140823142120)
+  [1m[35m (129.0ms)[0m  CREATE TABLE `favorites` (`id` int(11) auto_increment PRIMARY KEY, `favorite_list_id` int(11), `spell_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823142120')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddUnconfirmedEmailToUsers (20140823143008)
+  [1m[35m (140.3ms)[0m  ALTER TABLE `users` ADD `unconfirmed_email` varchar(255)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823143008')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateIdentities (20140823143605)
+  [1m[35m (172.3ms)[0m  CREATE TABLE `identities` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `provider` varchar(255), `uid` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (207.0ms)[0m  [1mCREATE  INDEX `index_identities_on_user_id`  ON `identities` (`user_id`) [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140823143605')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to AddOauthFieldsToUsers (20140823154438)
+  [1m[36m (163.4ms)[0m  [1mALTER TABLE `users` ADD `provider` varchar(255)[0m
+  [1m[35m (188.3ms)[0m  ALTER TABLE `users` ADD `uid` varchar(255)
+  [1m[36m (157.0ms)[0m  [1mALTER TABLE `users` ADD `name` varchar(255)[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140823154438')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to RenameDescriptionFieldInSpells (20140823162009)
+  [1m[36m (147.4ms)[0m  [1mALTER TABLE `spells` CHANGE `desrciption` `description` varchar(255) DEFAULT NULL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140823162009')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateBattles (20140823183132)
+  [1m[36m (153.8ms)[0m  [1mCREATE TABLE `battles` (`id` int(11) auto_increment PRIMARY KEY, `workflow_state` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140823183132')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to AddChallengerIdAndChallengeeIdToBattles (20140823185702)
+  [1m[36m (134.8ms)[0m  [1mALTER TABLE `battles` ADD `challenger_id` int(11)[0m
+  [1m[35m (145.8ms)[0m  ALTER TABLE `battles` ADD `challengee_id` int(11)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140823185702')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'Silences something immediately', 'Silencio', '2014-08-23 20:33:00')[0m
+  [1m[35m (15.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'Used to repair broken or damaged objects', 'Reparo', '2014-08-23 20:33:00')
+  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (16.9ms)[0m  [1mINSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'Conjures an incarnation of the caster', 'Expecto Patronum', '2014-08-23 20:33:00')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'disarms someone', 'Expelliarmus', '2014-08-23 20:33:00')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'Cuts or rips objects.', 'Diffindo', '2014-08-23 20:33:00')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'Inflicts unbearable pain on the recipient', 'Crucio', '2014-08-23 20:33:00')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'Killing curse', 'Avada Kedavra', '2014-08-23 20:33:00')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'stunning spell', 'Stupefy', '2014-08-23 20:33:00')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'makes a victim dance like spider', 'Tarantallegra', '2014-08-23 20:33:00')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `spells` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'Conjures a serpent from the spell caster’s wand.', 'Serpensortia', '2014-08-23 20:33:00')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'nick@nick.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `email`, `encrypted_password`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'nick@nick.com', '$2a$10$5TQeNqXmnrcAVaf5HnuOw.cMIuDRBdgxD7VmgBwH0B/NrBN/YVzCe', 'Nick', '2014-08-23 20:33:00')
+  [1m[36m (15.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'jake@jake.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`created_at`, `email`, `encrypted_password`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'jake@jake.com', '$2a$10$K22FrMO5Yw.oPqgqQWtg4OAiEcfU6pKt.zNzP5i1y.8D6xX.CD1LK', 'Jake', '2014-08-23 20:33:00')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'kevin@kevin.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `email`, `encrypted_password`, `name`, `updated_at`) VALUES ('2014-08-23 20:33:00', 'kevin@kevin.com', '$2a$10$.1Y/TPdn/dbvqm.wFEAan.WXS/MCBAHd9JoBgFm21FWlQxbK/kVIW', 'Kevin', '2014-08-23 20:33:00')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
