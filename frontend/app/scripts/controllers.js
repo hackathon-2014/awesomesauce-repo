@@ -8,13 +8,14 @@ angular.module('Frontend.controllers', [])
   // $cordovaDialogs.beep(2)
   $scope.loginData = {};
 
+  $scope.isLoggedIn = false
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
     // $scope.modal.show();
-    if(!($scope.isLoggedIn())){
+    if(!($scope.isLoggedIn)){
       console.log('logged in is false')
       $scope.login()
     }
@@ -47,9 +48,6 @@ angular.module('Frontend.controllers', [])
   };
 
 
-  $scope.isLoggedIn = function(){
-    return false;
-  }
 
 
   // Perform the login action when the user submits the login form
@@ -58,6 +56,7 @@ angular.module('Frontend.controllers', [])
     $http.post('http://localhost:3000/create_user.json', {login_info: $scope.loginData}).success(function(resp){
       console.log("user logged in, resp:", resp)
       $scope.closeLogin();
+      $scope.isLoggedIn = true
       
     })
     
