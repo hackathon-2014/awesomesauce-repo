@@ -96,6 +96,16 @@ angular.module('Frontend', ['ionic', 'config', 'Frontend.controllers', 'Frontend
           controller: 'ChooseSpellsCtrl'
         }
       }
+    })
+
+    .state('tab.battle', {
+      url: '/challenge/:challengerId/battle',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/tab-battle.html',
+          controller: 'BattleCtrl'
+        }
+      }
     });
 
   // if none of the above states are matched, use this as the fallback

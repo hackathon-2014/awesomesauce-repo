@@ -62,6 +62,8 @@ angular.module('Frontend.services', [])
     { id: 3, name: 'rock climbing' }
   ];
 
+  var spellsChosen = []
+
   return {
     allChallengers: function() {
       return challengers;
@@ -71,6 +73,7 @@ angular.module('Frontend.services', [])
     },
     allSpells: function(){
       return spells;
-    }
+    },
+    
   };
 });

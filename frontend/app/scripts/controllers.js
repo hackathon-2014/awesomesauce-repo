@@ -22,11 +22,22 @@ angular.module('Frontend.controllers', [])
 
 .controller('ChallengeCtrl', function($scope, Challenge) {
   console.log("ChallengersCtrl called")
+  $scope.spells = Challenge.allSpells();
   $scope.challengers = Challenge.allChallengers()
+  
 })
 
 .controller('ChooseSpellsCtrl', function($scope, $stateParams, Challenge) {
   console.log("ChooseSpellsCtrl called")
   $scope.challenger = Challenge.getChallenger($stateParams.challengerId)
   $scope.spells = Challenge.allSpells();
+  $scope.chooseSpell = function(spellId) {
+    var spellChosen = _.filter($scope.spells, function(spell){
+      return spell.id == spellId
+    })
+    console.log("spell chosen:", spellChosen)
+
+    $scope.challengers.push(spellChosen)
+    }
+  $scope.spellsChosen = []
 });
