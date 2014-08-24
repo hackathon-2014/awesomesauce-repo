@@ -1,5 +1,5 @@
 'use strict';
-angular.module('Frontend.controllers', [])
+angular.module('PotterBattle.controllers', [])
 
 .controller('DashCtrl', function($rootScope, $http, $scope, $location, Spells, $ionicModal, $timeout, Battle) {
   console.log("DashCtrl called, rootScope is", $rootScope)

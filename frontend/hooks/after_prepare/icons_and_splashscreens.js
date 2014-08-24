@@ -20,7 +20,7 @@ var Orchestrator = require('orchestrator');
 
 var BASES = {
   android: 'res',
-  ios: 'Frontend/Resources'
+  ios: 'PotterBattle/Resources'
 };
 var RESOURCE_DIR = 'resources';
 
