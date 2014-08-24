@@ -1,0 +1,22 @@
+<ion-view title="Battle">
+  <ion-content class="has-header padding">
+    <h1>Battle Screen!</h1>
+    <br>
+    {{battle.challenger.name || battle.challenger.email}}
+    vs
+    {{battle.challengee.name || battle.challengee.email}}
+    <br>
+    <h3>Their Spells</h3>
+    <a class="button" ng-repeat="spell in battle.challenger.spells">
+      {{spell.name}}
+    </a>
+
+    <h3>Your Spells</h3>
+    <a class="button" ng-repeat="spell in battle.challengee.spells" ng-click="castSpell(spell)">
+      {{spell.name}}
+    </a>
+
+      
+
+  </ion-content>
+</ion-view>
