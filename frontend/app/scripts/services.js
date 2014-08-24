@@ -1,5 +1,5 @@
 'use strict';
-angular.module('Frontend.services', [])
+angular.module('PotterBattle.services', [])
 
 .factory('Spells', [ '$http', function($http) {
   console.log("spells service hit")
