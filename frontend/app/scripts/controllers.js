@@ -154,7 +154,9 @@ angular.module('Frontend.controllers', [])
       challenger_id: Battle.data.challenger.id,
       challenger_spells: $scope.spellsChosen,
       challengee_id: Battle.data.challengee.id,
-      challengee_spells: []
+      challengee_spells: [],
+      challenger_hp: 50,
+      challengee_hp: 50
     }}
     $http.post('http://localhost:3000/battles.json',newBattle).success(function(data, status, headers, config){
       Battle.data = data;
@@ -221,7 +223,14 @@ angular.module('Frontend.controllers', [])
     }, 1000)
   };
   $scope.challengePing();
-  $scope.castSpell = function(spell) {
+  $scope.castSpell = function(spell,damage_person) {
+    var castSpellData = {
+      user_id: damage_person,
+      battle_id: $scope.battle.id
+    }
+    $http.post('http://localhost:3000/spells/' + spell.id + '/cast_spell.json', castSpellData).success( function() {
+      console.log("success")
+    })
     console.log("You cast " + spell.name)
   }  
 })
@@ -234,7 +243,7 @@ angular.module('Frontend.controllers', [])
   $scope.challengePing = function() {
     var challengeInt = setInterval(function(){
       console.log("timeout fired")
-      $http.get('http://localhost:3000/battles/' + $stateParams.challengeId + '/get_challenge_data.json').success(function(resp){
+      $http.get('http://localhost:3000/battles/' + $stateParams.battleId + '/get_challenge_data.json').success(function(resp){
         console.log(resp)
         Battle.data = resp;
         $scope.battle = resp;
@@ -244,7 +253,14 @@ angular.module('Frontend.controllers', [])
   };
   $scope.challengePing();
 
-  $scope.castSpell = function(spell) {
+  $scope.castSpell = function(spell, damage_person) {
+    var castSpellData = {
+      user_id: damage_person,
+      battle_id: $scope.battle.id
+    }
+    $http.post('http://localhost:3000/spells/' + spell.id + '/cast_spell.json', castSpellData).success( function() {
+      console.log("success")
+    })
     console.log("You cast " + spell.name)
   }
   

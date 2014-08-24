@@ -3,8 +3,11 @@
     <h1>Battle Screen!</h1>
     <br>
     {{battle.challenger.name || battle.challenger.email}}
+    {{battle.challenger.challenger_hp}}
     vs
     {{battle.challengee.name || battle.challengee.email}}
+    {{battle.challengee.challengee_hp}}
+
     <br>
     <h3>Their Spells</h3>
     <a class="button" ng-repeat="spell in battle.challenger.spells">
@@ -12,7 +15,7 @@
     </a>
 
     <h3>Your Spells</h3>
-    <a class="button" ng-repeat="spell in battle.challengee.spells" ng-click="castSpell(spell)">
+    <a class="button" ng-repeat="spell in battle.challengee.spells" ng-click="castSpell(spell, battle.challenger.id)">
       {{spell.name}}
     </a>
 

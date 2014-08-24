@@ -1,13 +1,16 @@
 <ion-view title="Battle">
   <ion-content class="has-header padding">
+
     <h1>Battle Screen!</h1>
     <br>
     {{battle.challenger.name || battle.challenger.email}}
+    {{battle.challenger.challenger_hp}}
     vs
     {{battle.challengee.name || battle.challengee.email}}
+    {{battle.challengee.challengee_hp}}
     <br>
     <h3>Your Spells</h3>
-    <a class="button" ng-repeat="spell in battle.challenger.spells" ng-click="castSpell(spell)">
+    <a class="button" ng-repeat="spell in battle.challenger.spells" ng-click="castSpell(spell, battle.challengee.id)">
       {{spell.name}}
     </a>
 

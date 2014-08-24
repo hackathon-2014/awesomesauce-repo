@@ -4,7 +4,8 @@ class SpellsController < ApplicationController
   before_filter :find_spell, only:[:show,
     :edit,
     :update,
-    :destroy]
+    :destroy,
+    :cast_spell]
 
   def index
     @spells = Spell.all
@@ -31,6 +32,24 @@ class SpellsController < ApplicationController
 
   def destroy
     @spell.delete
+  end
+
+  def cast_spell
+    @battle = Battle.find params[:battle_id]
+    @spell = Spell.find params[:id]
+    # @battle.spells.where(user_id: params[:user_id], spell: params[:id])
+    @user = User.find params[:user_id]
+    p @user
+    if @battle.challenger == @user
+      @battle.challenger_hp -= @spell.damage_count
+      @battle.save
+    else
+      p '*'*100
+      @battle.challengee_hp -= @spell.damage_count
+      @battle.save
+    end
+
+
   end
 
   private

@@ -64,10 +64,11 @@ class BattlesController < ApplicationController
     @challengee_spells = @battle.weapons.where(user_id: @battle.challengee_id).map(&:spell)
   end
 
+
   private
 
   def battle_params
-    params.require(:battle).permit(:workflow_state, :challengee_id, :challenger_id)
+    params.require(:battle).permit(:workflow_state, :challengee_id, :challenger_id, :challenger_hp, :challengee_hp)
   end  
 
   def find_battle

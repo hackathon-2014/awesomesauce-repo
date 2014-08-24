@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   end
   
   resources :spells do
+    member do
+      post :cast_spell
+    end
   end
   
   resources :users do

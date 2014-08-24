@@ -10,61 +10,61 @@
 Spell.create!(
   name: 'Silencio',
   description: 'Silences something immediately',
-  damage_count: ''
+  damage_count: 5
   )
 
 Spell.create!(
   name: "Reparo",
   description: "Used to repair broken or damaged objects",
-  damage_count: ''
+  damage_count: 10
   )
 
 Spell.create!(
   name: "Expecto Patronum",
   description: "Conjures an incarnation of the caster",
-  damage_count: ''
+  damage_count: 2
   )
 
 Spell.create!(
   name: "Expelliarmus",
   description: "disarms someone",
-  damage_count: ''
+  damage_count: 15
   )
 
 Spell.create!(
   name: "Diffindo",
   description: "Cuts or rips objects.",
-  damage_count: ''
+  damage_count: 2
   )
 
 Spell.create!(
   name: "Crucio",
   description: "Inflicts unbearable pain on the recipient",
-  damage_count: ''
+  damage_count: 14
   )
 
 Spell.create!(
   name: "Avada Kedavra",
   description: "Killing curse",
-  damage_count: ''
+  damage_count: 20
   )
 
 Spell.create!(
   name: "Stupefy",
   description: "stunning spell",
-  damage_count: ''
+  damage_count: 12
   )
 
 Spell.create!(
   name: "Tarantallegra",
   description: "makes a victim dance like spider",
-  damage_count: ''
+  damage_count: 6
   )
 
 Spell.create!(
   name: "Serpensortia",
   description: "Conjures a serpent from the spell caster’s wand.",
-  damage_count: ''
+  damage_count: 3
   )
 
 User.create!(
