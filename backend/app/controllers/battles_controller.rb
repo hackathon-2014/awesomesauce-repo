@@ -5,7 +5,8 @@ class BattlesController < ApplicationController
     :update,
     :destroy,
     :update_battle,
-    :get_challenge_data]
+    :get_challenge_data,
+    :end_battle]
 
   def index
     @battles = Battle.all
@@ -62,6 +63,10 @@ class BattlesController < ApplicationController
   def get_challenge_data
     @challenger_spells = @battle.weapons.where(user_id: @battle.challenger_id).map(&:spell)
     @challengee_spells = @battle.weapons.where(user_id: @battle.challengee_id).map(&:spell)
+  end
+
+  def end_battle
+    @battle.update_attribute(:workflow_state, "finished")
   end
 
 

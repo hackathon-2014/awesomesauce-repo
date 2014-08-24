@@ -206,7 +206,7 @@ angular.module('PotterBattle.controllers', [])
   }
 })
 
-.controller('BattleCtrl', function($scope, $stateParams, Battle, $http, $rootScope) {
+.controller('BattleCtrl', function($scope, $stateParams, Battle, $http, $rootScope, $location) {
   console.log("ChallengersCtrl called")
   console.log(Battle.data);
   $scope.battle = Battle.data;
@@ -224,7 +224,9 @@ angular.module('PotterBattle.controllers', [])
           $scope.someone_won = true;
           $scope.winner = "You lost!"
           clearInterval(challengeInt)
+          $http.post("http://localhost:3000/battles/" + resp.id + "/end_battle")
         }else if($scope.battle.challengee.challengee_hp <= 0){
+          $http.post("http://localhost:3000/battles/" + resp.id + "/end_battle")
           $scope.someone_won = true;
           $scope.winner = "You won!"
           clearInterval(challengeInt)
@@ -247,10 +249,10 @@ angular.module('PotterBattle.controllers', [])
   $scope.backHome = function() {
     $location.url('/');
   }
-  
+
 })
 
-.controller('ChallengeeBattleCtrl', function($scope, $stateParams, Battle, $http, $rootScope) {
+.controller('ChallengeeBattleCtrl', function($scope, $stateParams, Battle, $http, $rootScope, $location) {
   console.log("ChallengeesCtrl called")
   console.log(Battle.data);
   $scope.battle = Battle.data;
@@ -268,9 +270,11 @@ angular.module('PotterBattle.controllers', [])
           $scope.someone_won = true;
           $scope.winner = "You won!"
           clearInterval(challengeInt)
+          $http.post("http://localhost:3000/battles/" + resp.id + "/end_battle")
         }else if($scope.battle.challengee.challengee_hp <= 0){
           $scope.someone_won = true;
           $scope.winner = "You lost!"
+          $http.post("http://localhost:3000/battles/" + resp.id + "/end_battle")
           clearInterval(challengeInt)
         }
         

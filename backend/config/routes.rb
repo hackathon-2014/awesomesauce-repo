@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get :finished
       put :update_battle
       get :get_challenge_data
+      post :end_battle
     end
 
     collection do
