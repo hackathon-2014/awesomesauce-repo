@@ -1,6 +1,11 @@
 <ion-view title="Battle">
   <ion-content class="has-header padding">
+    <h3 style="color:red;" ng-show="someone_won">{{winner}}
 
+    </h3>
+    <center>
+    <a ng-click="backHome()" ng-show="someone_won">Home</a>
+    </center>
     <h1>Battle Screen!</h1>
     <div class ="battlenames">
       <br>
@@ -12,7 +17,7 @@
       <br>
     </div>
     <h3>Your Spells</h3>
-    <a class="button button-block button-assertive" ng-repeat="spell in battle.challenger.spells" ng-click="castSpell(spell)">
+    <a class="button button-block button-assertive" ng-repeat="spell in battle.challenger.spells" ng-click="castSpell(spell, battle.challengee.id)">
       {{spell.name}}
     </a>
 

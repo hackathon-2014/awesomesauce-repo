@@ -1,5 +1,10 @@
 <ion-view title="Battle">
   <ion-content class="has-header padding">
+    <h3 style="color:red;" ng-show="someone_won">{{winner}}  </h3>
+    <center>
+      <a ng-click="backHome()" ng-show="someone_won">Home</a>
+    </center>
+
     <h1>Battle Screen!</h1>
     <div class ="battlenames">
       <br>

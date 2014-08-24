@@ -210,6 +210,8 @@ angular.module('PotterBattle.controllers', [])
   console.log("ChallengersCtrl called")
   console.log(Battle.data);
   $scope.battle = Battle.data;
+  $scope.someone_won = false;
+  $scope.winner = "sup";  
   // $scope.challengers = Challenge.allChallengers()
   $scope.challengePing = function() {
     var challengeInt = setInterval(function(){
@@ -218,7 +220,16 @@ angular.module('PotterBattle.controllers', [])
         console.log(resp)
         Battle.data = resp;
         $scope.battle = resp;
-        // clearInterval(challengeInt)
+        if($scope.battle.challenger.challenger_hp <= 0) {
+          $scope.someone_won = true;
+          $scope.winner = "You lost!"
+          clearInterval(challengeInt)
+        }else if($scope.battle.challengee.challengee_hp <= 0){
+          $scope.someone_won = true;
+          $scope.winner = "You won!"
+          clearInterval(challengeInt)
+        }
+
       })
     }, 1000)
   };
@@ -233,12 +244,18 @@ angular.module('PotterBattle.controllers', [])
     })
     console.log("You cast " + spell.name)
   }  
+  $scope.backHome = function() {
+    $location.url('/');
+  }
+  
 })
 
 .controller('ChallengeeBattleCtrl', function($scope, $stateParams, Battle, $http, $rootScope) {
   console.log("ChallengeesCtrl called")
   console.log(Battle.data);
   $scope.battle = Battle.data;
+  $scope.someone_won = false;
+  $scope.winner = "";
   // $scope.challengers = Challenge.allChallengers()
   $scope.challengePing = function() {
     var challengeInt = setInterval(function(){
@@ -247,7 +264,16 @@ angular.module('PotterBattle.controllers', [])
         console.log(resp)
         Battle.data = resp;
         $scope.battle = resp;
-        // clearInterval(challengeInt)
+        if($scope.battle.challenger.challenger_hp <= 0) {
+          $scope.someone_won = true;
+          $scope.winner = "You won!"
+          clearInterval(challengeInt)
+        }else if($scope.battle.challengee.challengee_hp <= 0){
+          $scope.someone_won = true;
+          $scope.winner = "You lost!"
+          clearInterval(challengeInt)
+        }
+        
       })
     }, 1000)
   };
@@ -262,6 +288,9 @@ angular.module('PotterBattle.controllers', [])
       console.log("success")
     })
     console.log("You cast " + spell.name)
+  }
+  $scope.backHome = function() {
+    $location.url('/');
   }
   
 });
