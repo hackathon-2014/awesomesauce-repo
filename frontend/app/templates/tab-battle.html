@@ -6,7 +6,7 @@
     <center>
     <a ng-click="backHome()" ng-show="someone_won">Home</a>
     </center>
-    <h1>Battle Screen!</h1>
+    <h2>Battle Screen!</h2>
     <div class ="battlenames">
       <br>
       <h3>
@@ -25,5 +25,9 @@
       {{spell.name}}
     </a>
 
+    <h5>Their Spells</h5>
+    <li ng-repeat="spell in battle.challengee.spells">
+      {{spell.name}}
+    </li>
   </ion-content>
 </ion-view>
