@@ -6,7 +6,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('Frontend', ['ionic', 'config', 'Frontend.controllers', 'Frontend.services'])
+angular.module('PotterBattle', ['ionic', 'config', 'PotterBattle.controllers', 'PotterBattle.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
